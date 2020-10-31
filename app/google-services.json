@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "496777411436",
+    "firebase_url": "https://hardwaremartapi.firebaseio.com",
+    "project_id": "hardwaremartapi",
+    "storage_bucket": "hardwaremartapi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496777411436:android:1cbd2deffe930e0c399149",
+        "android_client_info": {
+          "package_name": "com.e.hardwarewalaseller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "496777411436-ui5khsllmli5itv9f78gebui2f5ptc8g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.e.hardwarewalaseller",
+            "certificate_hash": "fb1b93bdbaf80011e43872e1431a96cea0dfeab6"
+          }
+        },
+        {
+          "client_id": "496777411436-n1b3u1037rv6onlm7t6sadc6qo43mfgs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU1Sb21M2k68cg4KgfHudENRduKNcPmWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "496777411436-n1b3u1037rv6onlm7t6sadc6qo43mfgs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
