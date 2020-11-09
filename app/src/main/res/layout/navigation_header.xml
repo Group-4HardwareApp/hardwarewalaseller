@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/header_gradient"
+    >
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_gravity="left"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/user"
+        app:civ_border_color="@color/colorAccent"
+        app:civ_border_width="2dp"
+        app:civ_shadow="true"
+        app:civ_shadow_radius="5dp"
+        app:civ_shadow_color="@color/colorAccent"
+        android:id="@+id/civdp"
+        />
+
+        <TextView
+
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/username"
+            android:text="John Constantine"
+            android:hint="UserName"
+            android:textColor="@color/colorwhite"
+            />
+    <TextView
+        android:textColor="@color/colorwhite"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/shopkeeperId"
+        android:text="Store ID Here"
+        android:hint="shopkeeperId"
+        />
+
+</LinearLayout>

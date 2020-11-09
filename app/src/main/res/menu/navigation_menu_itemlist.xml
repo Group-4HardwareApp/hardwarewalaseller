@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item   android:id="@+id/storesettings"
+              android:title="Store Settings"
+        app:showAsAction="ifRoom"
+        android:checkable="true"
+        >
+<menu>
+    <item android:title="Update Store"
+        android:id="@+id/updatestore"
+        android:icon="@drawable/edit_f"
+        android:checkable="true"
+        />
+
+    <item android:title="Stats"
+        android:id="@+id/stats"
+        android:icon="@drawable/edit_f"
+        android:checkable="true"
+        />
+    <item android:title="Order History"
+        android:id="@+id/orderhistory"
+        android:icon="@drawable/edit_f"
+        android:checkable="true"
+
+        />
+</menu>
+    </item>
+
+    <item
+        android:title="Categories"
+        android:checkable="true"
+        android:id="@+id/categories"
+        app:showAsAction="ifRoom">
+    <menu>
+        <item android:title="Furniture"
+            android:id="@+id/furniture"
+            android:icon="@drawable/edit_f"
+            />
+
+        <item android:title="Tools"
+            android:id="@+id/tools"
+            android:icon="@drawable/edit_f"
+            />
+
+    <item android:title="Plummbing"
+        android:id="@+id/plumbbing"
+        android:icon="@drawable/edit_f"
+        />
+    <item android:title="Kitchenware"
+        android:id="@+id/kitchenware"
+        android:icon="@drawable/edit_f"
+        />
+</menu>
+    </item>
+
+    <item android:title="About Us"
+        android:id="@+id/aboutus"
+        android:icon="@drawable/edit_f"
+        app:showAsAction="ifRoom"
+        >
+<menu>
+    <item android:title="Customer Support"
+        android:id="@+id/contactus"
+        android:icon="@drawable/edit_f"
+        />
+
+    <item android:title="Company Policy"
+        android:id="@+id/policy"
+        android:icon="@drawable/edit_f"
+        />
+</menu>
+    </item>
+
+    <item android:title="Sign out"
+        android:id="@+id/signout"
+        android:icon="@drawable/edit_f"
+
+        />
+</menu>
