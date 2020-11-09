@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddStore">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorBlue" />
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginTop="30dp"
+        android:padding="16sp"
+        android:scrollbarSize="25sp"
+        android:id="@+id/scrollbar"
+        >
+        <LinearLayout
+            android:layout_below="@id/toolbar"
+            android:id="@+id/ll2"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            >
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:layout_gravity="center|center_horizontal"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/user"
+                android:scaleType="fitCenter"
+                app:civ_border_color="@color/colorAccent"
+                app:civ_border_width="2dp"
+                app:civ_shadow="true"
+                app:civ_shadow_radius="5dp"
+                app:civ_shadow_color="@color/colorAccent"
+                android:layout_below="@id/ll2"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/civdp"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ilownername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginTop="5dp"
+                >
+
+                <EditText
+                    android:id="@+id/etownername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Owner Name"
+                    android:inputType="textPersonName"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="5dp"
+                android:id="@+id/ilstorename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                >
+
+                <EditText
+                    android:id="@+id/etstorename"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Store Name"
+                    android:inputType="text"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="5dp"
+                android:id="@+id/ilemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+
+                <EditText
+                    android:id="@+id/etemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="e-mail"
+                    android:inputType="textEmailAddress"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ilphoneno"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                >
+
+                <EditText
+                    android:id="@+id/etphoneno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone"
+                    android:inputType="number"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/iladdress"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <EditText
+                    android:id="@+id/etaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Address"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Add Store"
+                android:id="@+id/btnaddstore"
+                android:backgroundTint="@color/colorBlue"
+                />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
