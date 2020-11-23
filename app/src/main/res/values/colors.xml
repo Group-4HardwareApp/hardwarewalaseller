@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
     <resources>
-        <color name="colorPrimary">#000000</color>
+        <color name="black">#000000</color>
         <color name="colorPrimaryDark">#015D87</color>
         <color name="colorAccent">#000000</color>
         <color name="colorOrange">#FFA622</color>
@@ -12,7 +12,9 @@
         <color name="colorYellow">#FFFF00</color>
         <color name="error_color">#E40404</color>
         <color name="colorwhite">#fff</color>
-
+        <color name="chrome_yellow">#FACC43</color>
+        <color name="deepBlue">#073D67</color>
+        <color name="cream">#E6E8A4</color>
     <!--
         <color name="colorBlue">#0C89EC</color>
 

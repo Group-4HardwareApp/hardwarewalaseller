@@ -16,4 +16,14 @@
 
 
 
+    <style parent="FirebaseUI" name="LogInTheme">
+
+        <item name="colorPrimary">@color/chrome_yellow</item>
+        <item name="colorPrimaryDark">@color/chrome_yellow</item>
+        <item name="colorAccent">@color/chrome_yellow</item>
+        <item name="android:background">@color/chrome_yellow</item>
+        <item name="android:textColorHint">@color/black</item>
+    </style>
+
+
 </resources>

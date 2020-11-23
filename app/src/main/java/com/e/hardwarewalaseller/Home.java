@@ -3,12 +3,14 @@ package com.e.hardwarewalaseller;
 import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -32,6 +34,7 @@ public class Home extends AppCompatActivity {
     ActivityHomeBinding activityHomeBinding;
     ActionBarDrawerToggle toggle;
     String inputQuery;
+    ImageButton addproduct;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +117,6 @@ public class Home extends AppCompatActivity {
 
         return true;
     }
-
+             
 
 }
