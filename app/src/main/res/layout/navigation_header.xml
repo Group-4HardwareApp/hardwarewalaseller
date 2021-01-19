@@ -1,45 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="220dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@drawable/header_gradient"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@drawable/header_gradient_yellow"
+    android:gravity="center"
+    android:orientation="vertical">
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:layout_gravity="left"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/user"
+        android:id="@+id/civdp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:src="@drawable/user2"
         app:civ_border_color="@color/colorAccent"
         app:civ_border_width="2dp"
         app:civ_shadow="true"
-        app:civ_shadow_radius="5dp"
         app:civ_shadow_color="@color/colorAccent"
-        android:id="@+id/civdp"
-        />
+        app:civ_shadow_radius="5dp" />
 
-        <TextView
 
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/username"
-            android:text="John Constantine"
-            android:hint="UserName"
-            android:textColor="@color/colorwhite"
-            />
+
     <TextView
-        android:textColor="@color/colorwhite"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="UserName"
+        android:singleLine="true"
+        android:text="John Constantine"
+        android:textColor="@color/colorwhite"
+        android:textIsSelectable="true"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:visibility="gone"
         android:id="@+id/shopkeeperId"
-        android:text="Store ID Here"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:hint="shopkeeperId"
-        />
+        android:singleLine="true"
+        android:text="Store ID Here"
+        android:textColor="@color/colorwhite"
+        android:textIsSelectable="true"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

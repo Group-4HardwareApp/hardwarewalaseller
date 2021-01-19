@@ -9,6 +9,7 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -45,7 +46,22 @@ public class ShopkeeperService {
                                               @Part("contactNumber") RequestBody contactNumber,
                                               @Part("address") RequestBody address,
                                               @Part("email") RequestBody email,
-                                              @Part("token") RequestBody token
-                                              );
+                                              @Part("token") RequestBody token,
+                                              @Part("shopkeeperId") RequestBody shopkeeperId);
+
+
+
+        @Multipart
+        @POST("shopkeeper/updateshopkeeperimg")
+        public Call<Shopkeeper> updateShopkeeperImage(@Part MultipartBody.Part file,@Part("shopkeeperId") RequestBody shopkeeperId);
+
+
+        @POST("shopkeeper/updateshopkeeper")
+        public  Call<Shopkeeper> updateShopkeeper(@Body Shopkeeper shopkeeper);
+
+
+        @GET("shopkeeper/view/{id}")
+        public Call<Shopkeeper> viewShopkeeper(@Path("id") String id);
+        
     }
 }

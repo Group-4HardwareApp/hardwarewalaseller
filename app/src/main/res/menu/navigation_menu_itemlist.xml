@@ -1,81 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <item   android:id="@+id/storesettings"
-              android:title="Store Settings"
-        app:showAsAction="ifRoom"
-        android:checkable="true"
+           android:title="Store Settings"
+            app:showAsAction="ifRoom"
+            android:checkable="true"
+
         >
 <menu>
+    <group android:checkableBehavior="single">
+
     <item android:title="Update Store"
         android:id="@+id/updatestore"
-        android:icon="@drawable/edit_f"
+        android:icon="@drawable/ic_storeoutlined"
         android:checkable="true"
         />
 
     <item android:title="Stats"
         android:id="@+id/stats"
-        android:icon="@drawable/edit_f"
+        android:icon="@drawable/ic_statoutlined"
         android:checkable="true"
         />
     <item android:title="Order History"
         android:id="@+id/orderhistory"
-        android:icon="@drawable/edit_f"
+        android:icon="@drawable/ic_orderdone"
         android:checkable="true"
 
         />
+
+        <item android:title="Manage Orders"
+            android:id="@+id/manageorders"
+            android:icon="@drawable/orderout"
+            android:checkable="true"
+            />
+
+    </group>
 </menu>
     </item>
 
-    <item
-        android:title="Categories"
-        android:checkable="true"
-        android:id="@+id/categories"
-        app:showAsAction="ifRoom">
-    <menu>
-        <item android:title="Furniture"
-            android:id="@+id/furniture"
-            android:icon="@drawable/edit_f"
-            />
 
-        <item android:title="Tools"
-            android:id="@+id/tools"
-            android:icon="@drawable/edit_f"
-            />
-
-    <item android:title="Plummbing"
-        android:id="@+id/plumbbing"
-        android:icon="@drawable/edit_f"
-        />
-    <item android:title="Kitchenware"
-        android:id="@+id/kitchenware"
-        android:icon="@drawable/edit_f"
-        />
-</menu>
-    </item>
 
     <item android:title="About Us"
         android:id="@+id/aboutus"
-        android:icon="@drawable/edit_f"
         app:showAsAction="ifRoom"
         >
 <menu>
+    <group  android:checkableBehavior="single">
     <item android:title="Customer Support"
         android:id="@+id/contactus"
-        android:icon="@drawable/edit_f"
+        android:icon="@drawable/ic_custsup"
         />
 
     <item android:title="Company Policy"
         android:id="@+id/policy"
-        android:icon="@drawable/edit_f"
+        android:icon="@drawable/privacypolicy"
+
         />
+    </group>
 </menu>
     </item>
 
     <item android:title="Sign out"
         android:id="@+id/signout"
-        android:icon="@drawable/edit_f"
-
+        android:icon="@drawable/signout"
         />
 </menu>

@@ -5,15 +5,54 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlActivated">@color/colormaroon</item>
+        <item name="colorControlActivated">@color/colorwhite</item>
         <item name="colorControlNormal">@color/colorwhite</item>
+
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#777777</item>
+        <item name="colorControlActivated">#EAD202</item>
     </style>
 
 
-    <style name="error_appearance"  parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/error_color</item>
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:editTextColor">@color/colorwhite</item>
     </style>
 
 
+    <style name="ThemeOverlay.SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:editTextColor">@color/colorwhite</item>
 
+    </style>
+
+    <style name="LogInTheme" parent="FirebaseUI">
+        <item name="colorPrimary">@color/colorBlue</item>
+        <item name="colorPrimaryDark">@color/colorBlue</item>
+        <item name="colorAccent">@color/colorblack</item>
+        <item name="android:textColorHint">@color/colorblack</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/colorBlue</item>
+    </style>
+
+    <style name="FirebaseUI.Button.AccountChooser.EmailButton">
+        <item name="android:drawableStart">@drawable/mail</item>
+        <item name="android:background">@drawable/login_button</item>
+        <item name="android:layout_marginBottom">30dp</item>
+        <item name="android:textColor">@color/colorblack</item>
+    </style>
+
+    <style name="FirebaseUI.Button.AccountChooser.PhoneButton">
+        <item name="drawableStartCompat">@drawable/phone</item>
+        <item name="android:background">@drawable/login_button</item>
+        <item name="android:shadowColor">@color/colorBlue</item>
+        <item name="android:textColor">@color/colorblack</item>
+    </style>
+
+    <style name="FirebaseUI.AuthMethodPicker.Logo">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
 </resources>

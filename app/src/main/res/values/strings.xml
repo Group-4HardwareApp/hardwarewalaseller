@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HardwareWalaSeller</string>
+    <string name="app_name">HardwareWale</string>
     <string name="username">HardwareWalaSeller</string>
     <string name="email_validation">HardwareWalaSeller</string>
     <string name="mobile_validation">HardwareWalaSeller</string>
@@ -15,5 +15,10 @@
     <string name="open">open</string>
     <string name="close">close</string>
 
+    <string name="rupee">₹</string>
+
+    <string name="imageupdate">Image updated successfully !</string>
+    <string name="productinfo">Product added successfully !</string>
+    <string name="productupdateinfo">Product information updated successfully !</string>
 
 </resources>

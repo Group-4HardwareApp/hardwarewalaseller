@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,144 +10,154 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorBlue" />
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/background_border"
+        app:titleTextColor="@color/colorwhite"
+
+        />
 
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/scrollbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:layout_marginTop="30dp"
-        android:padding="16sp"
-        android:scrollbarSize="25sp"
-        android:id="@+id/scrollbar"
-        >
+        android:scrollbarSize="25sp">
+
         <LinearLayout
-            android:layout_below="@id/toolbar"
             android:id="@+id/ll2"
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            >
+            android:layout_below="@id/toolbar"
+            android:orientation="vertical">
 
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:layout_gravity="center|center_horizontal"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/user"
-                android:scaleType="fitCenter"
-                app:civ_border_color="@color/colorAccent"
-                app:civ_border_width="2dp"
-                app:civ_shadow="true"
-                app:civ_shadow_radius="5dp"
-                app:civ_shadow_color="@color/colorAccent"
-                android:layout_below="@id/ll2"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/civdp"
-                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/civdp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/user2"
+                    app:civ_border_color="@color/colorAccent"
+                    app:civ_border_width="2dp"
+                    app:civ_shadow="true"
+                    app:civ_shadow_color="@color/colorAccent"
+                    app:civ_shadow_radius="5dp" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnupdateImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="-40dp"
+                    android:alpha="0.9"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/ic_dslrcam"
+                    android:visibility="gone"
+                    app:fabCustomSize="50dp"
+                    app:fabSize="normal"
+                    app:maxImageSize="30dp" />
+            </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ilownername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginTop="5dp"
-                >
+                android:layout_gravity="center"
+                app:boxBackgroundColor="#FFFFFF">
 
                 <EditText
                     android:id="@+id/etownername"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:hint="Owner Name"
                     android:inputType="textPersonName"
-
-                    />
+                    android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="5dp"
                 android:id="@+id/ilstorename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-                >
+                android:layout_gravity="center"
+                app:boxBackgroundColor="#FFFFFF">
 
                 <EditText
                     android:id="@+id/etstorename"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:hint="Store Name"
-                    android:inputType="text"
-                    />
+                    android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
-
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="5dp"
                 android:id="@+id/ilemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
+                android:layout_gravity="center"
+                app:boxBackgroundColor="#FFFFFF">
 
                 <EditText
                     android:id="@+id/etemail"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:hint="e-mail"
-                    android:inputType="textEmailAddress"
-                    />
+                    android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ilphoneno"
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                >
+                android:layout_gravity="center"
+                app:boxBackgroundColor="#FFFFFF">
 
                 <EditText
                     android:id="@+id/etphoneno"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:hint="Phone"
-                    android:inputType="number"
-                    />
+                    android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/iladdress"
-                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:layout_gravity="center"
+                app:boxBackgroundColor="#FFFFFF">
 
                 <EditText
                     android:id="@+id/etaddress"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:hint="Address"
-                    />
+                    android:layout_gravity="center"
+                    android:hint="Address" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
             <Button
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Add Store"
+                android:textColor="@color/colorwhite"
                 android:id="@+id/btnaddstore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
                 android:backgroundTint="@color/colorBlue"
-                />
+                android:gravity="center"
+                android:text="Add Store"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

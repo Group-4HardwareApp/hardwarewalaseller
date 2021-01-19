@@ -8,9 +8,9 @@ public class Shopkeeper {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("shopKeeperId")
+    @SerializedName("shopkeeperId")
     @Expose
-    private String shopKeeperId;
+    private String shopkeeperId;
     @SerializedName("shopName")
     @Expose
     private String shopName;
@@ -38,12 +38,12 @@ public class Shopkeeper {
         this.name = name;
     }
 
-    public String getShopKeeperId() {
-        return shopKeeperId;
+    public String getShopkeeperId() {
+        return shopkeeperId;
     }
 
-    public void setShopKeeperId(String shopKeeperId) {
-        this.shopKeeperId = shopKeeperId;
+    public void setShopkeeperId(String shopkeeperId) {
+        this.shopkeeperId = shopkeeperId;
     }
 
     public String getShopName() {
