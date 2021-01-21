@@ -68,7 +68,6 @@
                             app:cardElevation="10dp">
 
                             <ImageView
-
                                 android:id="@+id/iv1"
                                 android:layout_width="match_parent"
                                 android:layout_height="160dp"
@@ -272,13 +271,16 @@
                         android:layout_gravity="center"
                         app:boxBackgroundColor="#FFFFFF">
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                            android:elevation="20dp"
+                            android:completionThreshold="1"
+                            android:inputType="textAutoComplete|textAutoCorrect"
                             android:id="@+id/etbrandname"
                             android:layout_width="250dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="40dp"
                             android:layout_gravity="center"
                             android:hint="Brand name"
-                            android:inputType="text" />
+                            />
 
                     </com.google.android.material.textfield.TextInputLayout>
 

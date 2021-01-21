@@ -19,6 +19,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -98,6 +99,8 @@ public class AddProduct extends AppCompatActivity {
 
         validatingField();
 
+        addBrandName();
+
         Intent intentupdate = getIntent();
         p= (Product) intentupdate.getSerializableExtra("product");
         isUpdate = intentupdate.getBooleanExtra("isUpdate",false);
@@ -131,8 +134,55 @@ public class AddProduct extends AppCompatActivity {
             addProductImage();
         }
 
+    }
+
+    private void addBrandName() {
+//        activityAddProductBinding.etbrandname.auto
+        ArrayList<String> brandList = new ArrayList<>();
+        brandList.add("Sintex");
+        brandList.add("Tango");
+        brandList.add("Havells ");
+        brandList.add("Philips");
+        brandList.add("Polycab");
+            brandList.add("Taparia");
+            brandList.add("Hitachi");
+            brandList.add("Vega");
+            brandList.add("Godrej");
+            brandList.add("Tata");
+            brandList.add("Cumi Metabo");
+            brandList.add("Rolson");
+            brandList.add("Dewalt Leatherman");
+            brandList.add("Jackly ");
+            brandList.add("Europa");
+            brandList.add("Aakrati ");
+            brandList.add("Jaquar");
+            brandList.add("Ceramic");
+            brandList.add("Kaymo");
+            brandList.add("Cumi");
+            brandList.add("Hindware");
+            brandList.add("Taisen ");
+            brandList.add("Kasta");
+            brandList.add("WaterWall");
+            brandList.add("Supreme");
+            brandList.add("Astral ");
+        brandList.add("CPVC");
+            brandList.add("Prince");
+            brandList.add("German");
+            brandList.add("Curved");
+            brandList.add("Ketsy");
+            brandList.add("DOCOSS");
+            brandList.add("SCONNA");
+            brandList.add("Alton");
+            brandList.add("Arise");
+            brandList.add("Quick");
+            brandList.add("Zesta");
+            brandList.add("Hexagon");
+            brandList.add("lavabo");
+            brandList.add("ParryWare");
 
 
+            ArrayAdapter<String> brandAdapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,brandList);
+            activityAddProductBinding.etbrandname.setAdapter(brandAdapter);
     }
 
     private void UpdateProductDetails() {

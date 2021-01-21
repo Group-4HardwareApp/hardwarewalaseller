@@ -69,7 +69,7 @@ public class Home extends AppCompatActivity {
     //    NavigationHeaderBinding navigationHeaderBinding;
     ActivityHomeBinding activityHomeBinding;
     ActionBarDrawerToggle toggle;
-    String inputQuery;
+//    String inputQuery;
     FirebaseUser currentUser;
     //hardcoded
 
@@ -77,7 +77,7 @@ public class Home extends AppCompatActivity {
     ProductAdapter productAdapter;
     CategoryAdapter categoryAdapter;
     SharedPreferences sp;
-    SearchView searchView;
+//    SearchView searchView;
     String name = "";
 
     @Override
