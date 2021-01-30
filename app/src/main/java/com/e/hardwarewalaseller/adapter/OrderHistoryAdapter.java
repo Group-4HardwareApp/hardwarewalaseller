@@ -66,6 +66,7 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
 */
 
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
+
                 View mView = LayoutInflater.from(context).inflate(R.layout.imagezoom, null);
                 PhotoView photoView = mView.findViewById(R.id.photoview);
                 Picasso.get().load(i.getImageUrl())

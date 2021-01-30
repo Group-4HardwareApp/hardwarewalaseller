@@ -82,12 +82,21 @@ public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         String TOKENDISP = FirebaseInstanceId.getInstance().getToken();
-//        Toast.makeText(this, "" + TOKENDISP, Toast.LENGTH_SHORT).show();
+        /*Toast.makeText(this, "ID :"+FirebaseAuth.getInstance().getCurrentUser().getUid(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "TOKEN :" + TOKENDISP, Toast.LENGTH_SHORT).show();*/
+
+        String cuID=FirebaseAuth.getInstance().getCurrentUser().getUid();//currentuserID
+
+
         sp = getSharedPreferences("user", MODE_PRIVATE);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-//        Toast.makeText(this, "currentUser from FB"+currentUser, Toast.LENGTH_SHORT).show();
+
+        checkforToken(cuID,TOKENDISP);
+
+        //        Toast.makeText(this, "currentUser from FB"+currentUser, Toast.LENGTH_SHORT).show();
         Log.e("currentUser==>", "from firebase" + currentUser);
         LayoutInflater inflater = LayoutInflater.from(Home.this);
         activityHomeBinding = ActivityHomeBinding.inflate(inflater);
@@ -104,6 +113,33 @@ public class Home extends AppCompatActivity {
         search();
 
     }
+
+    public void checkforToken(String currentUID,String LatestToken) {
+//        Toast.makeText(this, "ID"+currentUID+"\n"+LatestToken, Toast.LENGTH_SHORT).show();
+
+        ShopkeeperService.ShopkeeperApi shopkeeperApi = ShopkeeperService.getShopkeeperApiInstance();
+        Call<Shopkeeper> call = shopkeeperApi.updateShopkeeperToken(currentUID,LatestToken);
+        call.enqueue(new Callback<Shopkeeper>() {
+            @Override
+            public void onResponse(Call<Shopkeeper> call, Response<Shopkeeper> response) {
+//                Toast.makeText(Home.this, "ss", Toast.LENGTH_SHORT).show();
+                if(response.code()==200) {
+                    Shopkeeper sk = response.body();
+                    String fetchedToken = sk.getToken();
+                    if (LatestToken.equals(fetchedToken)) {
+//                        Toast.makeText(Home.this, "same token !!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Shopkeeper> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+
+    }
+
 
     private void search() {
 
@@ -199,7 +235,7 @@ public class Home extends AppCompatActivity {
             String shopkeeperId = sp.getString("userId", "");
 //            Toast.makeText(Home.this, "" + shopkeeperId, Toast.LENGTH_SHORT).show();
             Call<ArrayList<Product>> call = productApi.viewProductOfShopkeeper(name, shopkeeperId);
-            call.enqueue(new Callback<ArrayList<Product>>() {
+                call.enqueue(new Callback<ArrayList<Product>>() {
                 @Override
                 public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
                     if(response.code()==200)
@@ -510,6 +546,7 @@ public class Home extends AppCompatActivity {
         CircularImageView userImage = headerLayout.findViewById(R.id.civdp);
 
         TextView tvUsername = headerLayout.findViewById(R.id.username);
+
         TextView shopkeeperId = headerLayout.findViewById(R.id.shopkeeperId);
 
         Picasso.get().load(sp.getString("imageUrl", "imageurl here")).into(userImage);

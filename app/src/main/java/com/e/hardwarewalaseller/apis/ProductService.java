@@ -49,6 +49,7 @@ public class ProductService {
 
         @DELETE("product/{id}")
         public Call<Product> deleteProduct(@Path("id") String id);
+/*
 
         @Multipart
         @POST("product/save")
@@ -63,8 +64,57 @@ public class ProductService {
                                          @Part("brand") RequestBody brand,
                                          @Part("qtyInStock") RequestBody qtyInStock,
                                          @Part("description") RequestBody description);
+*/
 
 
+/*
+
+        @Multipart
+        @POST("product/")
+        public Call<Product> saveProduct(@Part ArrayList<MultipartBody.Part> file,
+                                         @Part("categoryId") RequestBody categoryId,
+                                         @Part("shopkeeperId") RequestBody shopkeeperId,
+                                         @Part("name") RequestBody name,
+                                         @Part("price") RequestBody price,
+                                         @Part("discount") RequestBody discount,
+                                         @Part("brand") RequestBody brand,
+                                         @Part("qtyInStock") RequestBody qtyInStock,
+                                         @Part("description") RequestBody description);
+*/
+
+
+
+/*
+
+        @Multipart
+        @POST("product/uploadmultimages")
+        public Call<Product> multProductImages(@Part MultipartBody.Part file,
+                                         @Part  MultipartBody.Part file2,
+                                         @Part  MultipartBody.Part file3,
+                                         @Part("categoryId") RequestBody categoryId,
+                                         @Part("shopkeeperId") RequestBody shopkeeperId,
+                                         @Part("name") RequestBody name,
+                                         @Part("price") RequestBody price,
+                                         @Part("discount") RequestBody discount,
+                                         @Part("brand") RequestBody brand,
+                                         @Part("qtyInStock") RequestBody qtyInStock,
+                                         @Part("description") RequestBody description);
+
+*/
+
+
+
+        @Multipart
+        @POST("product/uploadmultimages")
+        public Call<Product> multProductImages(@Part List<MultipartBody.Part> file,
+                                               @Part("categoryId") RequestBody categoryId,
+                                               @Part("shopkeeperId") RequestBody shopkeeperId,
+                                               @Part("name") RequestBody name,
+                                               @Part("price") RequestBody price,
+                                               @Part("discount") RequestBody discount,
+                                               @Part("brand") RequestBody brand,
+                                               @Part("qtyInStock") RequestBody qtyInStock,
+                                               @Part("description") RequestBody description);
 
 
         @POST("product/updateproduct")
@@ -72,10 +122,8 @@ public class ProductService {
 
         @Multipart
         @POST("product/updateproductimg")
-        public Call<Product> updateProductImage(@Part MultipartBody.Part file,@Part("productId") RequestBody productId);
-
+        public Call<Product> updateProductImage(@Part MultipartBody.Part file, @Part  MultipartBody.Part file2,
+                                                @Part  MultipartBody.Part file3,@Part("productId") RequestBody productId);
     }
-
-
 
 }

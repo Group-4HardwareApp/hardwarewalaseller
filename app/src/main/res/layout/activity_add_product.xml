@@ -70,11 +70,11 @@
                             <ImageView
                                 android:id="@+id/iv1"
                                 android:layout_width="match_parent"
-                                android:layout_height="160dp"
+                                android:layout_height="140dp"
                                 android:layout_gravity="center"
                                 android:padding="10dp"
                                 android:scaleType="fitCenter"
-                                android:src="@drawable/proimg" />
+                                android:src="@drawable/addimage" />
                         </androidx.cardview.widget.CardView>
 
 
@@ -95,11 +95,11 @@
                             <ImageView
                                 android:id="@+id/iv2"
                                 android:layout_width="match_parent"
-                                android:layout_height="160dp"
+                                android:layout_height="140dp"
                                 android:layout_gravity="center"
                                 android:padding="10dp"
                                 android:scaleType="fitCenter"
-                                android:src="@drawable/proimg" />
+                                android:src="@drawable/addimage" />
                         </androidx.cardview.widget.CardView>
 
 
@@ -118,11 +118,11 @@
 
                                 android:id="@+id/iv3"
                                 android:layout_width="match_parent"
-                                android:layout_height="160dp"
+                                android:layout_height="140dp"
                                 android:layout_gravity="center"
                                 android:padding="10dp"
                                 android:scaleType="fitCenter"
-                                android:src="@drawable/proimg" />
+                                android:src="@drawable/addimage" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -183,10 +183,12 @@
                             android:textColor="@color/colorblack"
                             />
                         <Spinner
+                            android:tooltipText="Select one"
                             android:visibility="gone"
                             android:id="@+id/spinner"
                             android:layout_weight="0.6"
-                            android:layout_width="0dp"                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
                             android:spinnerMode="dropdown"
                             android:textAlignment="center"
                             android:theme="@style/ThemeOverlay.AppCompat.Light"
@@ -233,14 +235,23 @@
                         android:layout_gravity="center"
                         app:boxBackgroundColor="#FFFFFF">
 
-                        <EditText
+
+
+                        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                             android:id="@+id/etproductname"
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:completionThreshold="1"
                             android:hint="Product name"
-                            android:inputType="text"
-                            android:textSize="16sp" />
+                            android:inputType="textAutoComplete|textAutoCorrect"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="25dp"
+                            android:paddingRight="15dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="16sp"
+                            />
+
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -264,6 +275,7 @@
 
 
                     <com.google.android.material.textfield.TextInputLayout
+
                         android:id="@+id/ilbrandname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -272,14 +284,18 @@
                         app:boxBackgroundColor="#FFFFFF">
 
                         <androidx.appcompat.widget.AppCompatAutoCompleteTextView
-                            android:elevation="20dp"
-                            android:completionThreshold="1"
-                            android:inputType="textAutoComplete|textAutoCorrect"
                             android:id="@+id/etbrandname"
                             android:layout_width="250dp"
-                            android:layout_height="40dp"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:completionThreshold="1"
                             android:hint="Brand name"
+                            android:inputType="textAutoComplete|textAutoCorrect"
+                            android:paddingLeft="15dp"
+                            android:paddingTop="25dp"
+                            android:paddingRight="15dp"
+                            android:paddingBottom="10dp"
+                            android:textSize="16sp"
                             />
 
                     </com.google.android.material.textfield.TextInputLayout>

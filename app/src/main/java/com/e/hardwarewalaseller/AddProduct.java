@@ -1,7 +1,6 @@
 package com.e.hardwarewalaseller;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -19,7 +18,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -28,19 +26,20 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.PermissionChecker;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.e.hardwarewalaseller.apis.ProductNameService;
 import com.e.hardwarewalaseller.apis.ProductService;
 import com.e.hardwarewalaseller.beans.Category;
 import com.e.hardwarewalaseller.beans.Product;
+import com.e.hardwarewalaseller.beans.ProductName;
 import com.e.hardwarewalaseller.databinding.ActivityAddProductBinding;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import okhttp3.MediaType;
@@ -57,9 +56,9 @@ public class AddProduct extends AppCompatActivity {
     Product p = new Product();
     public static ArrayList<Category> categoryList;
     String categoryId;
-    Uri imageUri;
-    Uri secondImageUri;
-    Uri thirdImageuri;
+    Uri imageUri=null;
+    Uri secondImageUri=null;
+    Uri thirdImageuri=null;
     AwesomeValidation awesomeValidation;
     MultipartBody.Part body,body2,body3;
     ActivityAddProductBinding activityAddProductBinding;
@@ -69,12 +68,13 @@ public class AddProduct extends AppCompatActivity {
     ProgressDialog progressDialog;
     AlertDialog.Builder ab;
     SharedPreferences sp ;
-
+    boolean flag;
+    List<MultipartBody.Part> bodyList=new ArrayList<>();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-          LayoutInflater inflater = LayoutInflater.from(AddProduct.this);
+        LayoutInflater inflater = LayoutInflater.from(AddProduct.this);
         activityAddProductBinding = ActivityAddProductBinding.inflate(inflater);
         View view = activityAddProductBinding.getRoot();
         setContentView(view);
@@ -132,57 +132,111 @@ public class AddProduct extends AppCompatActivity {
 
             addProduct();
             addProductImage();
+
         }
 
     }
 
+    public void addProductName(String id) {
+
+//        "CategoryId" use this variable
+//        String category_Id=p.getCategoryId();
+//        Toast.makeText(this, "Getting by productbean"+p.getCategoryId(), Toast.LENGTH_SHORT).show();
+
+        String category_Id = id;
+        if(category_Id==null)
+        {
+            category_Id="5UCzKgjSkYItfDHmp7f9";
+            Toast.makeText(this, "category_Id"+category_Id, Toast.LENGTH_SHORT).show();
+        }
+
+          ArrayList<String> productNameList=new ArrayList<>();
+            ProductNameService.ProductNameApi productNameApi = ProductNameService.getProductNameApiInstance();
+            Call<ArrayList<ProductName>> call= productNameApi.getProductNameListByCategory(category_Id);
+            call.enqueue(new Callback<ArrayList<ProductName>>() {
+                @Override
+                public void onResponse(Call<ArrayList<ProductName>> call, Response<ArrayList<ProductName>> response) {
+                    if(response.code()==200) {
+                        ArrayList<ProductName> productNameArrayList = response.body();
+
+                        if(productNameArrayList==null)
+                        {
+                            Log.e("TAG","NULL for categoryID");
+                        }
+                        for (ProductName p : productNameArrayList) {
+//                        System.out.println(p.getProductName());
+                            Log.e("TAG", "" + p.getProductName());
+                            String pn = p.getProductName();
+                            productNameList.add(pn);
+//                        Toast.makeText(AddProduct.this, "toast"+pn, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else
+                    {
+                        Toast.makeText(AddProduct.this, "200 failure", Toast.LENGTH_SHORT).show();
+                    }
+
+                    ArrayAdapter<String> productNameAdapter= new ArrayAdapter<String>(AddProduct.this, android.R.layout.simple_list_item_1,productNameList);
+                    activityAddProductBinding.etproductname.setAdapter(productNameAdapter);
+                }
+
+                @Override
+                public void onFailure(Call<ArrayList<ProductName>> call, Throwable t) {
+                    Toast.makeText(AddProduct.this, "api failure....", Toast.LENGTH_SHORT).show();
+                    t.printStackTrace();
+                }
+            });
+
+
+    }
+
     private void addBrandName() {
-//        activityAddProductBinding.etbrandname.auto
+
         ArrayList<String> brandList = new ArrayList<>();
         brandList.add("Sintex");
         brandList.add("Tango");
         brandList.add("Havells ");
         brandList.add("Philips");
         brandList.add("Polycab");
-            brandList.add("Taparia");
-            brandList.add("Hitachi");
-            brandList.add("Vega");
-            brandList.add("Godrej");
-            brandList.add("Tata");
-            brandList.add("Cumi Metabo");
-            brandList.add("Rolson");
-            brandList.add("Dewalt Leatherman");
-            brandList.add("Jackly ");
-            brandList.add("Europa");
-            brandList.add("Aakrati ");
-            brandList.add("Jaquar");
-            brandList.add("Ceramic");
-            brandList.add("Kaymo");
-            brandList.add("Cumi");
-            brandList.add("Hindware");
-            brandList.add("Taisen ");
-            brandList.add("Kasta");
-            brandList.add("WaterWall");
-            brandList.add("Supreme");
-            brandList.add("Astral ");
+        brandList.add("Taparia");
+        brandList.add("Hitachi");
+        brandList.add("Vega");
+        brandList.add("Godrej");
+        brandList.add("Tata");
+        brandList.add("Cumi Metabo");
+        brandList.add("Rolson");
+        brandList.add("Dewalt Leatherman");
+        brandList.add("Jackly ");
+        brandList.add("Europa");
+        brandList.add("Aakrati ");
+        brandList.add("Jaquar");
+        brandList.add("Ceramic");
+        brandList.add("Kaymo");
+        brandList.add("Cumi");
+        brandList.add("Hindware");
+        brandList.add("Taisen ");
+        brandList.add("Kasta");
+        brandList.add("WaterWall");
+        brandList.add("Supreme");
+        brandList.add("Astral ");
         brandList.add("CPVC");
-            brandList.add("Prince");
-            brandList.add("German");
-            brandList.add("Curved");
-            brandList.add("Ketsy");
-            brandList.add("DOCOSS");
-            brandList.add("SCONNA");
-            brandList.add("Alton");
-            brandList.add("Arise");
-            brandList.add("Quick");
-            brandList.add("Zesta");
-            brandList.add("Hexagon");
-            brandList.add("lavabo");
-            brandList.add("ParryWare");
+        brandList.add("Prince");
+        brandList.add("German");
+        brandList.add("Curved");
+        brandList.add("Ketsy");
+        brandList.add("DOCOSS");
+        brandList.add("SCONNA");
+        brandList.add("Alton");
+        brandList.add("Arise");
+        brandList.add("Quick");
+        brandList.add("Zesta");
+        brandList.add("Hexagon");
+        brandList.add("lavabo");
+        brandList.add("ParryWare");
 
 
-            ArrayAdapter<String> brandAdapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,brandList);
-            activityAddProductBinding.etbrandname.setAdapter(brandAdapter);
+        ArrayAdapter<String> brandAdapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,brandList);
+        activityAddProductBinding.etbrandname.setAdapter(brandAdapter);
     }
 
     private void UpdateProductDetails() {
@@ -191,64 +245,94 @@ public class AddProduct extends AppCompatActivity {
         getSupportActionBar().setTitle("Update Product Details");
 
         addProductImage();
+
         activityAddProductBinding.btnupdateImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 if(isConnected())
                 {
+                    String PID = p.getProductId();
+                    RequestBody productId = RequestBody.create(MultipartBody.FORM, PID);
+                        if(imageUri != null) {
+                            flag=true;
+                            File file = FileUtils.getFile(AddProduct.this, imageUri);
+                            RequestBody requestFile =
+                                    RequestBody.create(
+                                            MediaType.parse(Objects.requireNonNull(getContentResolver().getType(imageUri))),
+                                            file
+                                    );
+                            body = MultipartBody.Part.createFormData("file", file.getName(), requestFile);
+                            Toast.makeText(AddProduct.this, "in" + body, Toast.LENGTH_SHORT).show();
+                            Log.e("IMG1in", "" + imageUri + body);
+                        }
 
-                   if(imageUri!=null)
-                   {
-                       String PID=p.getProductId();
-//                       Toast.makeText(AddProduct.this, "PID"+p.getProductId(), Toast.LENGTH_SHORT).show();
-                       RequestBody productId= RequestBody.create(MultipartBody.FORM,PID);
-//                       body =checkforImage();
+                            if(secondImageUri != null ) {
+                                flag=true;
+                                File file2 = FileUtils.getFile(AddProduct.this, secondImageUri);
+                                RequestBody requestFile2 =
+                                        RequestBody.create(
+                                                MediaType.parse(Objects.requireNonNull(getContentResolver().getType(secondImageUri))),
+                                                file2);
+                                body2 = MultipartBody.Part.createFormData("file2", file2.getName(), requestFile2);
+                                Toast.makeText(AddProduct.this, "in" + body2, Toast.LENGTH_SHORT).show();
+                                Log.e("IMG2in", "" + secondImageUri + body2);
+                            }
+                                if (thirdImageuri != null) {
+                                    flag=true;
+                                    File file3 = FileUtils.getFile(AddProduct.this, thirdImageuri);
+                                    RequestBody requestFile3 =
+                                            RequestBody.create(
+                                                    MediaType.parse(Objects.requireNonNull(getContentResolver().getType(thirdImageuri))),
+                                                    file3);
+                                    body3 = MultipartBody.Part.createFormData("file3", file3.getName(), requestFile3);
+                                    Toast.makeText(AddProduct.this, "in" + body3, Toast.LENGTH_SHORT).show();
+                                    Log.e("IMG3in", "" + thirdImageuri + body3);
+                                }
 
+                                if(flag) {
 
-                       progressDialog =new ProgressDialog(AddProduct.this);
-
-                       progressDialog.setTitle("Uploading Image");
-                       progressDialog.setMessage("Please wait while uploading product image..");
-                       progressDialog.show();
-                       ab=new AlertDialog.Builder(AddProduct.this);
+                                    progressDialog =new ProgressDialog(AddProduct.this);
+                                    progressDialog.setTitle("Uploading Image");
+                                    progressDialog.setMessage("Please wait while uploading product image..");
+                                    progressDialog.show();
+                                    ab=new AlertDialog.Builder(AddProduct.this);
 //                       activityAddProductBinding.
-                       ab.setView(R.layout.lottie_image_upload);
+                                    ab.setView(R.layout.lottie_image_upload);
 
-                       ab.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                           @Override
-                           public void onClick(DialogInterface dialogInterface, int i) {
-                               finish();
-                           }
+                                    ab.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            finish();
+                                        }
 
-                       });
-
-                       ProductService.ProductApi productApiForImageUpdate=ProductService.getProductApiInstance();
-                       Call<Product> call = productApiForImageUpdate.updateProductImage(body,productId);
-                       call.enqueue(new Callback<Product>() {
-                           @Override
-                           public void onResponse(Call<Product> call, Response<Product> response) {
-
-                               Toast.makeText(AddProduct.this, "Image Updated Successfully !", Toast.LENGTH_SHORT).show();
-                               progressDialog.dismiss();
-                               ab.show();
+                                    });
+                            ProductService.ProductApi productApiForImageUpdate = ProductService.getProductApiInstance();
+                                    Log.e("TAG for update","1"+body+"\n2"+body2+"\n3"+body3);
+                                    Call<Product> call = productApiForImageUpdate.updateProductImage(body, body2, body3, productId);
+                            call.enqueue(new Callback<Product>() {
+                                @Override
+                                public void onResponse(Call<Product> call, Response<Product> response) {
+                                    progressDialog.dismiss();
+                                    Toast.makeText(AddProduct.this, "Image Updated Successfully !", Toast.LENGTH_SHORT).show();
+                                    ab.show();
 //                               Toast.makeText(AddProduct.this, "imgurl"+p.getImageUrl(), Toast.LENGTH_SHORT).show();
-                           }
+                                }
 
-                           @Override
-                           public void onFailure(Call<Product> call, Throwable t) {
-                               Toast.makeText(AddProduct.this, "failed", Toast.LENGTH_SHORT).show();
-                           }
-                       });
-                   }
-                   else
-                   {
-                       Toast.makeText(AddProduct.this, "Select Image to Update", Toast.LENGTH_SHORT).show();
-                   }
+                                @Override
+                                public void onFailure(Call<Product> call, Throwable t) {
+                                    Toast.makeText(AddProduct.this, "failed", Toast.LENGTH_SHORT).show();
+                                    t.printStackTrace();
+                                    progressDialog.dismiss();
+                                }
 
-
-
-                }
+                            });
+                        }
+                        else
+                        {
+                            Toast.makeText(AddProduct.this, "Please select image to upload", Toast.LENGTH_SHORT).show();
+                        }
+}
                 else
                 {
                     Toast.makeText(AddProduct.this, "No Internet Connnection", Toast.LENGTH_SHORT).show();
@@ -285,26 +369,25 @@ public class AddProduct extends AppCompatActivity {
                         String CategoryId;
                         if(isSpinnerTouched)
                         {
-                             CategoryId=categoryId;
-//                            Toast.makeText(AddProduct.this, "variant catID"+CategoryId, Toast.LENGTH_SHORT).show();
+                            CategoryId=categoryId;
+                            Toast.makeText(AddProduct.this, "variant catID"+CategoryId, Toast.LENGTH_SHORT).show();
+                            Log.e("CATEGORYspintouch",""+CategoryId);
                         }
                         else
                         {
                             CategoryId=p.getCategoryId();
-//                            Toast.makeText(AddProduct.this, "old catid"+CategoryId, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddProduct.this, "old catid"+CategoryId, Toast.LENGTH_SHORT).show();
+                            Log.e("CATEGORY","not spin"+CategoryId);
                         }
-//
-//                        Toast.makeText(AddProduct.this, "finalCatID"+CategoryId+categoryName, Toast.LENGTH_SHORT).show();
 
-
+                        Toast.makeText(AddProduct.this, "finalCatID"+CategoryId+categoryName, Toast.LENGTH_SHORT).show();
+                        Log.e("CATEGORY",""+CategoryId);
 
                         Product p=new Product();
 
                         p.setProductId(PID);
 //                        p.setPrice(Double.parseDouble(productprice));
-
                         p.setPrice(Integer.parseInt(productprice));
-
                         p.setName(productname);
                         p.setQtyInStock(Integer.parseInt(quantity));
                         p.setDescription(description);
@@ -342,7 +425,7 @@ public class AddProduct extends AppCompatActivity {
                         call.enqueue(new Callback<Product>() {
                             @Override
                             public void onResponse(Call<Product> call, Response<Product> response) {
-                                    Product p=response.body();
+                                Product p=response.body();
 
 //                                Toast.makeText(AddProduct.this, "IMP"+p.getProductId()+p.getCategoryId(), Toast.LENGTH_SHORT).show();
 
@@ -351,13 +434,13 @@ public class AddProduct extends AppCompatActivity {
                                 Toast.makeText(AddProduct.this, "Product Update Successfully", Toast.LENGTH_SHORT).show();
 //                                progressDialog.dismiss();
 //                                activityfinished
-                                  progressDialog.dismiss();
-                                 ab.show();
+                                progressDialog.dismiss();
+                                ab.show();
 //                                finish();
 
                             }
 
-                                @Override
+                            @Override
                             public void onFailure(Call<Product> call, Throwable t) {
                                 Toast.makeText(AddProduct.this, "Failure", Toast.LENGTH_SHORT).show();
                             }
@@ -516,124 +599,96 @@ public class AddProduct extends AppCompatActivity {
                         String CatId=categoryId;
                         Log.e("SSCatId==>val",""+CatId);
 
-
-//                        commented code for  uploading imagge
-                        if(imageUri != null && secondImageUri != null && thirdImageuri != null)
+                        ArrayList<MultipartBody.Part> fileList = new ArrayList<>();
+                        if(imageUri != null)
                         {
-//                            Toast.makeText(AddProduct.this, "SSSSSSSSSSSSS", Toast.LENGTH_SHORT).show();
+                            File file = FileUtils.getFile(AddProduct.this, imageUri);
+                            RequestBody requestFile =
+                                    RequestBody.create(
+                                            MediaType.parse(Objects.requireNonNull(getContentResolver().getType(imageUri))),
+                                            file
+                                    );
+                            bodyList.add(MultipartBody.Part.createFormData("file", file.getName(), requestFile));
 
-                            if(imageUri != null && secondImageUri != null && thirdImageuri != null) {
-
-                                File file = FileUtils.getFile(AddProduct.this, imageUri);
-                                RequestBody requestFile =
-                                        RequestBody.create(
-                                                MediaType.parse(Objects.requireNonNull(getContentResolver().getType(imageUri))),
-                                                file
-                                        );
-                                body =
-                                        MultipartBody.Part.createFormData("file", file.getName(), requestFile);
-
-
+                         if(secondImageUri != null ) {
+                                Log.e("TAG", "secondImageUri" + secondImageUri);
                                 File file2 = FileUtils.getFile(AddProduct.this, secondImageUri);
                                 RequestBody requestFile2 =
                                         RequestBody.create(
                                                 MediaType.parse(Objects.requireNonNull(getContentResolver().getType(secondImageUri))),
-                                                file2
-                                        );
-                                body2 =
-                                        MultipartBody.Part.createFormData("file2", file2.getName(), requestFile2);
+                                                file2);
 
-                                File file3 = FileUtils.getFile(AddProduct.this, thirdImageuri);
-                                RequestBody requestFile3 =
-                                        RequestBody.create(
-                                                MediaType.parse(Objects.requireNonNull(getContentResolver().getType(thirdImageuri))),
-                                                file3
-                                        );
-                                body3 =
-                                        MultipartBody.Part.createFormData("file3", file3.getName(), requestFile3);
-
-                                RequestBody productName = RequestBody.create(MultipartBody.FORM, productname);
-                                RequestBody price = RequestBody.create(MultipartBody.FORM, productprice);
-                                RequestBody Discount = RequestBody.create(MultipartBody.FORM, discount);
-                                RequestBody Brand = RequestBody.create(MultipartBody.FORM, brand);
-                                RequestBody Quantity = RequestBody.create(MultipartBody.FORM, quantity);
-                                RequestBody Description = RequestBody.create(MultipartBody.FORM, description);
-                                RequestBody shopkeeperId = RequestBody.create(MultipartBody.FORM, shopKeeperId);
-//                                Toast.makeText(AddProduct.this, "shopkeeperId22>" + shopkeeperId, Toast.LENGTH_SHORT).show();
-
-                                RequestBody categoryId = RequestBody.create(MultipartBody.FORM, CatId);
-
-//                                Toast.makeText(AddProduct.this, "*****" + CatId + shopKeeperId, Toast.LENGTH_SHORT).show();
-
-                                //next to implement
-                                progressDialog = new ProgressDialog(AddProduct.this);
-                                progressDialog.setTitle("Adding Product");
-                                progressDialog.setMessage("Please wait while adding product..");
-                                progressDialog.show();
-                                ab = new AlertDialog.Builder(AddProduct.this);
-                                ab.setView(R.layout.successbg);
-                                ab.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        finish();
-                                    }
-
-                                });
-                                ab.setCancelable(false);
-
-                                Dialog outtouch = ab.create();
-                                outtouch.setCanceledOnTouchOutside(false);
-
-                                ProductService.ProductApi productApi = ProductService.getProductApiInstance();
-                                //commenting
-                                Call<Product> call = productApi.saveProduct(body, body2, body3, categoryId, shopkeeperId, productName, price, Discount, Brand, Quantity, Description);
-
-                                call.enqueue(new Callback<Product>() {
-                                    @Override
-                                    public void onResponse(Call<Product> call, Response<Product> response) {
-
-                                        Product p = response.body();
-//                                        Toast.makeText(AddProduct.this, "Product added successfully !", Toast.LENGTH_SHORT).show();
-//                                    Log.e("PRODUCT",""+p.getProductId()+"  "+p.getBrand());
-
-                                        //make alert dia here
-                                        progressDialog.dismiss();
-
-                                        ab.show();
-
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<Product> call, Throwable t) {
-                                        Toast.makeText(AddProduct.this, "Bad response from server", Toast.LENGTH_SHORT).show();
-                                        Log.e("THROWED", "" + t);
-                                    }
-                                });
+                                bodyList.add(MultipartBody.Part.createFormData("file", file2.getName(), requestFile2));
+                         }
+                         if (thirdImageuri != null) {
+                                    File file3 = FileUtils.getFile(AddProduct.this, thirdImageuri);
+                                    RequestBody requestFile3 =
+                                            RequestBody.create(
+                                                    MediaType.parse(Objects.requireNonNull(getContentResolver().getType(thirdImageuri))),
+                                                    file3);
+                                    bodyList.add( MultipartBody.Part.createFormData("file", file3.getName(), requestFile3));
+                          }
 
 
-                            }
-                        }
-                        else
-                        {
-                            Toast.makeText(AddProduct.this, "Please select image", Toast.LENGTH_SHORT).show();
-                        }
+                            RequestBody productName = RequestBody.create(MultipartBody.FORM, productname);
+                            RequestBody price = RequestBody.create(MultipartBody.FORM, productprice);
+                            RequestBody Discount = RequestBody.create(MultipartBody.FORM, discount);
+                            RequestBody Brand = RequestBody.create(MultipartBody.FORM, brand);
+                            RequestBody Quantity = RequestBody.create(MultipartBody.FORM, quantity);
+                            RequestBody Description = RequestBody.create(MultipartBody.FORM, description);
+                            RequestBody shopkeeperId = RequestBody.create(MultipartBody.FORM, shopKeeperId);
+                            RequestBody categoryId = RequestBody.create(MultipartBody.FORM, CatId);
+                            progressDialog = new ProgressDialog(AddProduct.this);
+                            progressDialog.setTitle("Adding Product");
+                            progressDialog.setMessage("Please wait while adding product..");
+                            progressDialog.show();
+                            ab = new AlertDialog.Builder(AddProduct.this);
+                            ab.setView(R.layout.successbg);
+                            ab.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    finish();
+                                }
 
+                            });
+                            ab.setCancelable(false);
+
+                            Dialog outtouch = ab.create();
+                            outtouch.setCanceledOnTouchOutside(false);
+
+                            ProductService.ProductApi productApi = ProductService.getProductApiInstance();
+                            Call<Product> call = productApi.multProductImages(bodyList, categoryId, shopkeeperId, productName,
+                                    price, Discount, Brand, Quantity, Description);
+                            Log.e("Body list","===========>"+bodyList.size());
+                            call.enqueue(new Callback<Product>() {
+                                @Override
+                                public void onResponse(Call<Product> call, Response<Product> response) {
+                                if(response.code()==200) {
+                                    Product p = response.body();
+                                    progressDialog.dismiss();
+                                    ab.show();
+                                }
+                                 else
+                                    Toast.makeText(AddProduct.this, ""+response.code(), Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onFailure(Call<Product> call, Throwable t) {
+                                    Toast.makeText(AddProduct.this, "Bad response from server", Toast.LENGTH_SHORT).show();
+                                    Log.e("THROWED", "" + t);
+                                }
+                            });
+                    }
 
                     }
                     else
                     {
                         Toast.makeText(AddProduct.this, "Invalid input(s)", Toast.LENGTH_SHORT).show();
                     }
-
-
-
-
                 }
-
                 else
                 {
                     Toast.makeText(AddProduct.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
-//                    Log.e("INTERNET NOT CONNECTED","Internet Issue");
                 }
             }
         });
@@ -661,9 +716,7 @@ public class AddProduct extends AppCompatActivity {
 */
 
     private void categorySpinner() {
-
-         adapter = new ArrayAdapter<Category>(AddProduct.this,android.R.layout.simple_spinner_dropdown_item,categoryList);
-
+        adapter = new ArrayAdapter<Category>(AddProduct.this,android.R.layout.simple_spinner_dropdown_item,categoryList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        spinner.setPrompt("Select Category!");
 
@@ -686,11 +739,13 @@ public class AddProduct extends AppCompatActivity {
 
                 //callhere
 
-
+                String id;
                 if(categoryId==null)
                 {
                     Category c= (Category) activityAddProductBinding.spinner.getSelectedItem();
                     categoryId=c.getCategoryId();
+                    id=c.getCategoryId();
+                    addProductName(id);
 //                    Toast.makeText(AddProduct.this, "categoryId__ifnull"+categoryId, Toast.LENGTH_SHORT).show();
                 }
 
@@ -699,9 +754,15 @@ public class AddProduct extends AppCompatActivity {
 
                 Category c= (Category) activityAddProductBinding.spinner.getSelectedItem();
                 String name =c.getCategoryName();
+                id=c.getCategoryId();
 //                Toast.makeText(AddProduct.this, ""+name, Toast.LENGTH_SHORT).show();
                 categoryId=c.getCategoryId();
                 activityAddProductBinding.etcategoryname.setText(name);
+                Toast.makeText(AddProduct.this, "variant catID"+categoryId+"\n"+name, Toast.LENGTH_SHORT).show();
+
+                //check for category to prodcut name
+//
+                addProductName(id);
 
 //                pos=adapter.getItem(position).toString();
 
@@ -743,10 +804,7 @@ public class AddProduct extends AppCompatActivity {
             Picasso.get().load(thirdImageuri).into(activityAddProductBinding.iv3);
 //            Toast.makeText(this, ""+thirdImageuri, Toast.LENGTH_SHORT).show();
         }
-
-
     }
-
 
     public boolean isConnected() {
         boolean connected = false;
@@ -760,5 +818,4 @@ public class AddProduct extends AppCompatActivity {
         }
         return connected;
     }
-
 }

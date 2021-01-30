@@ -62,6 +62,11 @@ public class ShopkeeperService {
 
         @GET("shopkeeper/view/{id}")
         public Call<Shopkeeper> viewShopkeeper(@Path("id") String id);
-        
+
+
+        @POST("shopkeeper/updatetoken/{shopkeeperId}/{token}")
+        public Call<Shopkeeper> updateShopkeeperToken(@Path("shopkeeperId") String shopkeeperId ,@Path("token") String token);
+
+
     }
 }

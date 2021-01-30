@@ -3,6 +3,8 @@
     <color name="colorPrimary">#000000</color>
 
     <color name="colorPrimaryDark">#FACC43</color>
+    #FEE600
+
     <!--
     died
     <color name="colorPrimaryDark">#015D87</color>
@@ -10,7 +12,9 @@
 
     <color name="colorAccent">#000000</color>
     <color name="colorOrange">#FFA622</color>
+<!--    <color name="colorBlue">#FACC43</color>-->
     <color name="colorBlue">#FACC43</color>
+
 
     <!--
         died color

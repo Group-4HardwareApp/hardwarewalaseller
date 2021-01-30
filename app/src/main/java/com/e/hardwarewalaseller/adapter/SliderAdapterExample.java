@@ -1,15 +1,18 @@
 package com.e.hardwarewalaseller.adapter;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.e.hardwarewalaseller.R;
 import com.e.hardwarewalaseller.beans.SliderItem;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 import com.squareup.picasso.Picasso;
 
@@ -50,10 +53,30 @@ public class SliderAdapterExample extends SliderViewAdapter<SliderAdapterExample
     public void onBindViewHolder(SliderAdapterVH viewHolder, final int position) {
 
         SliderItem sliderItem = mSliderItems.get(position);
-        Picasso.get().load(sliderItem.getImageUrl()).into(viewHolder.imageViewBackground);
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+//chg
+               Picasso.get().load(sliderItem.getImageUrl()).into(viewHolder.imageViewBackground);
+
+
+   viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(context);
+        View mView = LayoutInflater.from(context).inflate(R.layout.imagezoom, null);
+        PhotoView photoView = mView.findViewById(R.id.photoview);
+        Picasso.get().load(sliderItem.getImageUrl())
+                .placeholder(R.drawable.nm)
+                .into(photoView);
+
+          mBuilder.setView(mView);
+        AlertDialog mDialog = mBuilder.create();
+        mDialog.show();
+
+
+
+
 
             }
         });
