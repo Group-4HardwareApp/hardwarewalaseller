@@ -13,6 +13,7 @@
         android:largeHeap="true"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
+        android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -29,14 +30,19 @@
             android:parentActivityName=".Home"
             />
 
+        <activity android:name=".EnglishToHindi" />
+
+
         <activity android:name=".AddStore"/>
 
         <activity android:name=".UpdateStore"/>
+
         <activity android:name=".PackageHistory"
             android:parentActivityName=".Home"
             />
 
         <activity android:name=".OrderHistory"/>
+
         <activity android:name=".Summary"/>
 
 
@@ -44,7 +50,6 @@
         <activity android:name=".Home"/>
         <activity android:name=".LogInActivity"/>
         <activity android:name=".AddProduct"
-            android:parentActivityName=".Home"
             />
 
         <activity android:name=".RatingActivity"/>

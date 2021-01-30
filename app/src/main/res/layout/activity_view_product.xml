@@ -9,14 +9,14 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:overScrollMode="never">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             app:titleTextColor="@color/colorwhite"
             android:layout_height="46dp"
-
             android:background="@drawable/background_border"
             />
 

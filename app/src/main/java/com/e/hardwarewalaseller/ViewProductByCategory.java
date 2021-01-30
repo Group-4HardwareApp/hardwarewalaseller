@@ -85,16 +85,11 @@ public class ViewProductByCategory extends AppCompatActivity {
 
                         }
                     });
-//                    Toast.makeText(ViewProductByCategory.this, "Success", Toast.LENGTH_SHORT).show();
-
-
-
                 }
 
                 @Override
                 public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
                     Toast.makeText(ViewProductByCategory.this, "Bad response from server", Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(ViewProductByCategory.this, ""+t, Toast.LENGTH_SHORT).show();
                     Log.e("TAG",""+t);
                 }
             });

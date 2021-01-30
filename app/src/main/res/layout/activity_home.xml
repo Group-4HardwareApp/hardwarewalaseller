@@ -113,7 +113,8 @@
                 android:layout_marginTop="60dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:overScrollMode="never">
 
                 <TextView
                     android:paddingLeft="15dp"
@@ -166,6 +167,7 @@
             android:layout_gravity="start"
             android:clipToPadding="true"
             app:headerLayout="@layout/navigation_header"
-            app:menu="@menu/navigation_menu_itemlist" />
+            app:menu="@menu/navigation_menu_itemlist"
+            android:overScrollMode="never"/>
     </androidx.drawerlayout.widget.DrawerLayout>
 </RelativeLayout>

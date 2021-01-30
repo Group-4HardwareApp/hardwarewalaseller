@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBlue"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:overScrollMode="never">
 
     <ImageView
         android:layout_marginTop="50dp"
@@ -19,7 +20,7 @@
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="version : 2.0.0"
-        android:textColor="@color/colormaroon"
-        android:textSize="20dp"
-        android:visibility="gone" />
+        android:textColor="@color/colorblack"
+        android:layout_marginTop="350dp"
+        android:textSize="20dp"/>
 </LinearLayout>

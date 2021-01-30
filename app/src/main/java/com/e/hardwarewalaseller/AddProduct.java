@@ -70,6 +70,8 @@ public class AddProduct extends AppCompatActivity {
     SharedPreferences sp ;
     boolean flag;
     List<MultipartBody.Part> bodyList=new ArrayList<>();
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +80,7 @@ public class AddProduct extends AppCompatActivity {
         activityAddProductBinding = ActivityAddProductBinding.inflate(inflater);
         View view = activityAddProductBinding.getRoot();
         setContentView(view);
+
 
         awesomeValidation  =  new AwesomeValidation(BASIC);
         activityAddProductBinding.ll2.setVisibility(View.VISIBLE);
@@ -136,6 +139,23 @@ public class AddProduct extends AppCompatActivity {
         }
 
     }
+
+
+    /*@Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Really Exit?")
+                .setMessage("Are you sure you want to exit?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        AddProduct.super.onBackPressed();
+                    }
+                }).create().show();
+    }*/
+
+
 
     public void addProductName(String id) {
 
@@ -243,6 +263,22 @@ public class AddProduct extends AppCompatActivity {
         setSupportActionBar(activityAddProductBinding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Update Product Details");
+
+
+        activityAddProductBinding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(AddProduct.this)
+                        .setTitle("Really Exit?")
+                        .setMessage("Are you sure you want to exit?")
+                        .setNegativeButton(android.R.string.no, null)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                AddProduct.super.onBackPressed();
+                            }
+                        }).create().show();            }
+        });
 
         addProductImage();
 
@@ -380,7 +416,7 @@ public class AddProduct extends AppCompatActivity {
                             Log.e("CATEGORY","not spin"+CategoryId);
                         }
 
-                        Toast.makeText(AddProduct.this, "finalCatID"+CategoryId+categoryName, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(AddProduct.this, "finalCatID"+CategoryId+categoryName, Toast.LENGTH_SHORT).show();
                         Log.e("CATEGORY",""+CategoryId);
 
                         Product p=new Product();
@@ -469,6 +505,8 @@ public class AddProduct extends AppCompatActivity {
     }
 
     private void initComponents() {
+
+
         Log.e("TAG","3 images");
         Picasso.get().load(p.getImageUrl()).into(activityAddProductBinding.iv1);
         Picasso.get().load(p.getSecondImageUrl()).into(activityAddProductBinding.iv2);
@@ -572,6 +610,24 @@ public class AddProduct extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Add Product");
 
+
+        activityAddProductBinding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(AddProduct.this)
+                        .setTitle("Really Exit?")
+                        .setMessage("Are you sure you want to exit?")
+                        .setNegativeButton(android.R.string.no, null)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                AddProduct.super.onBackPressed();
+                            }
+                        }).create().show();
+            }
+        });
+
+
         activityAddProductBinding.btnaddproduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -655,10 +711,9 @@ public class AddProduct extends AppCompatActivity {
 
                             Dialog outtouch = ab.create();
                             outtouch.setCanceledOnTouchOutside(false);
-
+                            Log.e("TAGS","CATID"+categoryId+"SHOP"+shopkeeperId);
                             ProductService.ProductApi productApi = ProductService.getProductApiInstance();
-                            Call<Product> call = productApi.multProductImages(bodyList, categoryId, shopkeeperId, productName,
-                                    price, Discount, Brand, Quantity, Description);
+                            Call<Product> call = productApi.multProductImages(bodyList, categoryId, shopkeeperId, productName,price, Discount, Brand, Quantity, Description);
                             Log.e("Body list","===========>"+bodyList.size());
                             call.enqueue(new Callback<Product>() {
                                 @Override
@@ -669,7 +724,7 @@ public class AddProduct extends AppCompatActivity {
                                     ab.show();
                                 }
                                  else
-                                    Toast.makeText(AddProduct.this, ""+response.code(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AddProduct.this, "RESP code::"+response.code(), Toast.LENGTH_SHORT).show();
                                 }
 
                                 @Override
@@ -679,6 +734,10 @@ public class AddProduct extends AppCompatActivity {
                                 }
                             });
                     }
+                        else
+                        {
+                            Toast.makeText(AddProduct.this, "Please upload image(s)", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                     else

@@ -6,7 +6,8 @@
     android:layout_gravity="center"
     android:layout_margin="20dp"
     android:orientation="vertical"
-    android:padding="50dp">
+    android:padding="50dp"
+    android:overScrollMode="never">
 
     <Button
         android:id="@+id/sendnotifcation"

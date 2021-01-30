@@ -5,13 +5,13 @@
     android:id="@+id/categorycv"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp"
+    android:layout_margin="10dp"
     android:orientation="vertical"
     card_view:cardBackgroundColor="@color/colorwhite"
     android:outlineAmbientShadowColor="@color/colorAccent"
     android:outlineSpotShadowColor="@color/colorblack"
-    app:cardElevation="5dp"
-    app:cardCornerRadius="4dp"
+    app:cardElevation="7dp"
+    app:cardCornerRadius="7dp"
     >
 
     <RelativeLayout
@@ -25,7 +25,7 @@
             android:layout_centerHorizontal="true"
             android:padding="10dp"
             android:id="@+id/categoryimg"
-            android:layout_width="150dp"
+            android:layout_width="155dp"
             android:layout_height="150dp"
             android:scaleType="fitCenter"
             android:src="@drawable/nm"/>

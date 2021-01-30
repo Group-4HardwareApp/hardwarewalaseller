@@ -2,7 +2,9 @@
 <RelativeLayout android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/offWhite"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -27,7 +29,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:overScrollMode="never">
 
         <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -42,7 +45,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/decor">
+                >
 
                 <ImageView
                     android:id="@+id/ivwallet"
@@ -59,7 +62,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_toRightOf="@+id/ivwallet"
                     android:text="₹"
-                    android:textColor="@color/colorblack"
+                    android:textColor="#4CAF50"
                     android:textSize="100dp"
                     android:textStyle="italic" />
 
@@ -71,10 +74,10 @@
                     android:layout_marginTop="50dp"
                     android:layout_toRightOf="@+id/rupee"
                     android:singleLine="true"
-                    android:text="10000000000000"
+                    android:text="2500"
                     android:textColor="@color/colorblack"
                     android:textIsSelectable="true"
-                    android:textSize="25dp"
+                    android:textSize="35dp"
                     android:textStyle="bold" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -91,9 +94,10 @@
             app:cardElevation="10dp">
 
             <RelativeLayout
+                android:elevation="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:background="@drawable/prodbg">
+                >
 
                 <ImageView
                     android:id="@+id/ivbox"
@@ -127,10 +131,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:singleLine="true"
-                        android:text="100000000000"
+                        android:text="500000"
                         android:textColor="@color/colorblack"
                         android:textIsSelectable="true"
-                        android:textSize="30dp"
+                        android:textSize="40dp"
                         android:textStyle="bold" />
 
                 </LinearLayout>

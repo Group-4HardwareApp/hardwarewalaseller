@@ -208,9 +208,6 @@ public class Home extends AppCompatActivity {
                 closeKeyboard();
             }
         });
-
-
-
     }
 
     private void closeKeyboard() {
@@ -220,8 +217,6 @@ public class Home extends AppCompatActivity {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(),0);
             //check below
-
-
         }
     }
 
@@ -316,13 +311,12 @@ public class Home extends AppCompatActivity {
                 if(resultCode==RESULT_OK && data!=null)
                 {
                     ArrayList<String> result=data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-//                    Toast.makeText(this, ""+result.get(0), Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(this, "mutch", Toast.LENGTH_SHORT).show();
                     Log.e("TAG",""+result.get(0));
+                    activityHomeBinding.tvAppName.setVisibility(View.GONE);
+                    activityHomeBinding.etSearch.setVisibility(View.VISIBLE);
+                    activityHomeBinding.ivcross.setVisibility(View.VISIBLE);
                     activityHomeBinding.etSearch.setText(result.get(0).trim());
-//                    activityHomeBinding.ivcross.setVisibility(View.VISIBLE);
-//                    activityHomeBinding.tvAppName.setVisibility(View.GONE);
-//                    Log.e("TAG",""+result);
+
                 }
         }
     }
@@ -491,7 +485,9 @@ public class Home extends AppCompatActivity {
                 int id = item.getItemId();
                 if (id == R.id.updatestore) {
 //                    Toast.makeText(Home.this, "Update Store clicked !", Toast.LENGTH_SHORT).show();
-                    Intent in = new Intent(Home.this, UpdateStore.class);
+                    /*Intent in = new Intent(Home.this, UpdateStore.class);*/
+                    Intent in = new Intent(Home.this, AddStore.class);
+                    in.putExtra("updateStore", true);
                     startActivity(in);
                 } else if (id == R.id.stats) {
 //                    Toast.makeText(Home.this, "Statistics !", Toast.LENGTH_SHORT).show();
@@ -502,12 +498,25 @@ public class Home extends AppCompatActivity {
                     Intent in = new Intent(Home.this, PackageHistory.class);
                     in.putExtra("status", "history");
                     startActivity(in);
-                } else if (id == R.id.manageorders) {
+                }
+                else if (id == R.id.manageorders) {
 //                    Toast.makeText(Home.this, "Manage Order !", Toast.LENGTH_SHORT).show();
                     Intent in = new Intent(Home.this, PackageHistory.class);
                     in.putExtra("status", "current");
                     startActivity(in);
-                } else if (id == R.id.signout) {
+
+                }
+
+
+                else if (id == R.id.contactus) {
+                    Toast.makeText(Home.this, "clcke", Toast.LENGTH_SHORT).show();
+                    Intent in = new Intent(Home.this, EnglishToHindi.class);
+//                    in.putExtra("status", "current");
+                    startActivity(in);
+                }
+
+
+                else if (id == R.id.signout) {
 //                    Toast.makeText(Home.this, "Sign Out", Toast.LENGTH_SHORT).show();
                     AlertDialog.Builder ab = new AlertDialog.Builder(Home.this);
                     ab.setMessage("Do you want to logout ?");
