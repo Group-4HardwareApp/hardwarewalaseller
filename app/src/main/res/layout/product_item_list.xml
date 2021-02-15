@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/productcv"
     android:layout_gravity="center"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardElevation="7dp"
@@ -29,7 +29,8 @@
             android:src="@drawable/hardwarewala_yellow" />
 
         <TextView
-
+            android:gravity="center"
+            android:layout_centerInParent="true"
             android:layout_marginTop="5dp"
             android:id="@+id/productname"
             android:layout_width="wrap_content"

@@ -21,4 +21,8 @@
     <string name="productinfo">Product added successfully !</string>
     <string name="productupdateinfo">Product information updated successfully !</string>
 
+    <string name="viewmore"><u>View More</u></string>
+    <string name="viewreviews"><u>View Reviews</u></string>
+
+
 </resources>

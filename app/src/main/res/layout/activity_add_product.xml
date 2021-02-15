@@ -230,42 +230,43 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/ilproductname"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/ll3"
                         android:layout_gravity="center"
                         app:boxBackgroundColor="#FFFFFF">
 
 
-
                         <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                             android:id="@+id/etproductname"
-                            android:layout_width="250dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:completionThreshold="1"
                             android:hint="Product name"
                             android:inputType="textAutoComplete|textAutoCorrect"
-                            android:paddingLeft="15dp"
+                            android:paddingLeft="12dp"
                             android:paddingTop="25dp"
-                            android:paddingRight="15dp"
                             android:paddingBottom="10dp"
-                            android:textSize="16sp"
-                            />
+                            android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/ilprice"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/ilproductname"
                         android:layout_gravity="center"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
                         app:boxBackgroundColor="#FFFFFF">
 
                         <EditText
                             android:id="@+id/etprice"
-                            android:layout_width="250dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:hint="Product price"
@@ -278,21 +279,23 @@
                     <com.google.android.material.textfield.TextInputLayout
 
                         android:id="@+id/ilbrandname"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/ilprice"
                         android:layout_gravity="center"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
                         app:boxBackgroundColor="#FFFFFF">
 
                         <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                             android:id="@+id/etbrandname"
-                            android:layout_width="250dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:completionThreshold="1"
                             android:hint="Brand name"
                             android:inputType="textAutoComplete|textAutoCorrect"
-                            android:paddingLeft="15dp"
+                            android:paddingLeft="12dp"
                             android:paddingTop="25dp"
                             android:paddingRight="15dp"
                             android:paddingBottom="10dp"
@@ -320,15 +323,18 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/ildiscount"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/ilquantity"
                         android:layout_gravity="center"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
                         app:boxBackgroundColor="#FFFFFF">
 
                         <EditText
+
                             android:id="@+id/etdiscount"
-                            android:layout_width="250dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:hint="Discount"
@@ -340,14 +346,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/ildiscount"
-                        android:layout_gravity="center"
-                        app:boxBackgroundColor="#FFFFFF">
+                        android:layout_marginRight="70dp"
+                        android:layout_marginLeft="70dp"
+                        app:boxBackgroundColor="#FFFFFF"
+                        >
 
                         <EditText
                             android:id="@+id/etdescription"
-                            android:layout_width="250dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:hint="Description"
                             android:inputType="textMultiLine" />
                     </com.google.android.material.textfield.TextInputLayout>

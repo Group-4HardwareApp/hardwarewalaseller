@@ -130,6 +130,7 @@
                     android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:overScrollMode="never"
                     android:id="@+id/rvcategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -150,6 +151,7 @@
                     android:visibility="gone" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:overScrollMode="never"
                     android:visibility="gone"
                     android:id="@+id/rvproduct"
                     android:layout_width="match_parent"

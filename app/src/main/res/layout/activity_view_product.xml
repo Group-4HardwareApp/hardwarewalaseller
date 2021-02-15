@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.appcompat.widget.Toolbar
+android:id="@+id/toolbar"
+android:layout_width="match_parent"
+app:titleTextColor="@color/colorwhite"
+android:layout_height="46dp"
+android:background="@drawable/background_border"
+    />
+
+
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
+
 
     <LinearLayout
 
@@ -11,14 +29,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:overScrollMode="never">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            app:titleTextColor="@color/colorwhite"
-            android:layout_height="46dp"
-            android:background="@drawable/background_border"
-            />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -263,7 +273,7 @@
                     android:gravity="center"
                     android:hint="Product Description"
                     android:maxLines="5"
-                    android:text="na/5"
+                    android:text="NA/5"
                     android:textStyle="bold"
                     android:textColor="@color/colorblack" />
 
@@ -278,7 +288,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_gravity="center"
                     android:backgroundTint="@color/colorBlue"
-                    android:text="View Reviews.."
+                    android:text="@string/viewreviews"
                     android:textStyle="bold" />
 
             </RelativeLayout>
@@ -319,3 +329,4 @@
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
+</LinearLayout>
