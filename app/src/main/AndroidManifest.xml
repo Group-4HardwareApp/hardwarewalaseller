@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.e.hardwaremallseller">
+    package="com.e.hardwarewalaseller">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -21,52 +21,49 @@
 
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.e.hardwaremallseller.MainActivity" />
+        <activity android:name="com.e.hardwarewalaseller.MainActivity" />
 
-        <activity android:name="com.e.hardwaremallseller.ViewProduct"
+        <activity android:name="com.e.hardwarewalaseller.ViewProduct"
 
             />
-        <activity android:name="com.e.hardwaremallseller.ViewProductByCategory"
-            android:parentActivityName="com.e.hardwaremallseller.Home"
+        <activity android:name="com.e.hardwarewalaseller.ViewProductByCategory"
+            android:parentActivityName="com.e.hardwarewalaseller.Home"
             />
 
-        <activity android:name="com.e.hardwaremallseller.EnglishToHindi" />
+        <activity android:name="com.e.hardwarewalaseller.EnglishToHindi" />
 
 
-        <activity android:name="AddStore"/>
+        <activity android:name="com.e.hardwarewalaseller.AddStore"/>
 
-        <activity android:name="com.e.hardwaremallseller.UpdateStore"/>
+        <activity android:name="com.e.hardwarewalaseller.UpdateStore"/>
 
-        <activity android:name="com.e.hardwaremallseller.PackageHistory"
-            android:parentActivityName="com.e.hardwaremallseller.Home"
+        <activity android:name="com.e.hardwarewalaseller.PackageHistory"
+            android:parentActivityName="com.e.hardwarewalaseller.Home"
             />
 
-        <activity android:name="com.e.hardwaremallseller.OrderHistory"/>
+        <activity android:name="com.e.hardwarewalaseller.OrderHistory"/>
 
-        <activity android:name="com.e.hardwaremallseller.Summary"/>
+        <activity android:name="com.e.hardwarewalaseller.Summary"/>
 
 
         <!--review later below-->
-        <activity android:name="com.e.hardwaremallseller.Home"/>
-        <activity android:name="com.e.hardwaremallseller.LogInActivity"/>
-        <activity android:name="com.e.hardwaremallseller.AddProduct"
+        <activity android:name="com.e.hardwarewalaseller.Home"/>
+        <activity android:name="com.e.hardwarewalaseller.LogInActivity"/>
+        <activity android:name="com.e.hardwarewalaseller.AddProduct"
             />
 
-        <activity android:name="com.e.hardwaremallseller.RatingActivity"/>
-        <activity android:name="com.e.hardwaremallseller.UpdateProduct"/>
+        <activity android:name="com.e.hardwarewalaseller.RatingActivity"/>
+        <activity android:name="com.e.hardwarewalaseller.UpdateProduct"/>
 
-        <activity android:name="com.e.hardwaremallseller.breakabl"/>
+        <activity android:name="com.e.hardwarewalaseller.breakabl"/>
 
-        <activity android:name="com.e.hardwaremallseller.LauncherActivity">
+        <activity android:name="com.e.hardwarewalaseller.LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
 
 
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
@@ -78,7 +75,7 @@
 
 
 
-        <service android:name="com.e.hardwaremallseller.MyFirebaseMessagingService"
+        <service android:name="com.e.hardwarewalaseller.MyFirebaseMessagingService"
             android:exported="false"
             >
             <intent-filter>

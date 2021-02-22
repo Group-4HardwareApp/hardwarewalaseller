@@ -23,6 +23,13 @@
 
     <string name="viewmore"><u>View More</u></string>
     <string name="viewreviews"><u>View Reviews</u></string>
+    <string name="channel_name">sendnotification</string>
+
+
+    <string name="noonwayorder">Sorry there are no new Orders !</string>
+    <string name="nohistory">Hisory not available !</string>
+
+
 
 
 </resources>

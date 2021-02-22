@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:401462071599:android:453867ed6dc3dc77d9d1da",
+        "mobilesdk_app_id": "1:401462071599:android:8e784905a8056e0ad9d1da",
         "android_client_info": {
-          "package_name": "com.e.hardwaremallseller"
+          "package_name": "com.e.hardwarewalaseller"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "401462071599-1ua5sm0tc4vvsivfcjt538vqpdbhndsv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.e.hardwarewalaseller",
+            "certificate_hash": "40ee3b9f9987cf378226f55490f907eb8fb8c2c8"
+          }
+        },
         {
           "client_id": "401462071599-j1dfijks4rqk20gcaoh32u19o1888rjp.apps.googleusercontent.com",
           "client_type": 3

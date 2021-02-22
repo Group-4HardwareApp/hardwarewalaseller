@@ -34,7 +34,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowBackground">@color/colorBlue</item>
+
     </style>
+
 
     <style name="FirebaseUI.Button.AccountChooser.EmailButton">
         <item name="android:drawableStart">@drawable/mail</item>

@@ -18,8 +18,8 @@
         android:checkable="true"
         />
 
-    <item android:title="Stats"
-        android:id="@+id/stats"
+    <item android:title="Statistics"
+        android:id="@+id/statistics"
         android:icon="@drawable/ic_statoutlined"
         android:checkable="true"
         />

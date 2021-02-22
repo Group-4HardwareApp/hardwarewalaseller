@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBlue"
     android:orientation="vertical"
-    android:overScrollMode="never">
+    android:paddingTop="200dp">
 
     <ImageView
-        android:layout_marginTop="50dp"
         android:id="@+id/ivlogo"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:foregroundGravity="center"
         android:src="@drawable/hardwarewala_yellow" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:gravity="center"
-        android:text="version : 2.0.0"
         android:textColor="@color/colorblack"
-        android:layout_marginTop="350dp"
-        android:textSize="20dp"/>
-</LinearLayout>
+        android:text="Version : 1.0"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold" />
+</RelativeLayout>
