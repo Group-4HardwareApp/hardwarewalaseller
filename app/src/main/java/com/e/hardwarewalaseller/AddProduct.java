@@ -189,6 +189,7 @@ public class AddProduct extends AppCompatActivity {
     private void addBrandName() {
 
         ArrayList<String> brandList = new ArrayList<>();
+        brandList.add("Other");
         brandList.add("Sintex");
         brandList.add("Tango");
         brandList.add("Havells ");
@@ -387,11 +388,8 @@ public class AddProduct extends AppCompatActivity {
 //                        Toast.makeText(AddProduct.this, "PID"+PID, Toast.LENGTH_SHORT).show();
                         String productname = activityAddProductBinding.etproductname.getText().toString().trim();
                         String productprice = activityAddProductBinding.etprice.getText().toString().trim();
-                        String discount = activityAddProductBinding.etdiscount.getText().toString().trim();
-                        if(discount.equals(""))
-                        {
 
-                        }
+                        String  discount = activityAddProductBinding.etdiscount.getText().toString().trim();
                         String brand = activityAddProductBinding.etbrandname.getText().toString().trim();
                         String quantity= activityAddProductBinding.etquantity.getText().toString().trim();
                         String description = activityAddProductBinding.etdescription.getText().toString().trim();
@@ -717,8 +715,10 @@ public class AddProduct extends AppCompatActivity {
                                     progressDialog.dismiss();
                                     ab.show();
                                 }
-                                 else
-                                    Toast.makeText(AddProduct.this, "RESP code::"+response.code(), Toast.LENGTH_SHORT).show();
+                                 else{
+                                    Toast.makeText(AddProduct.this, "Something went wrong !", Toast.LENGTH_SHORT).show();
+                                }
+
                                 }
 
                                 @Override

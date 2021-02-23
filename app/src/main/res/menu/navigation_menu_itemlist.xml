@@ -48,12 +48,12 @@
         >
 <menu>
     <group  android:checkableBehavior="single">
-    <item android:title="Customer Support"
+    <item android:title="Contact us"
         android:id="@+id/contactus"
         android:icon="@drawable/ic_custsup"
         />
 
-    <item android:title="Company Policy"
+    <item android:title="Privacy Policy"
         android:id="@+id/policy"
         android:icon="@drawable/privacypolicy"
 

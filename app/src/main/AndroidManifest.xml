@@ -21,43 +21,62 @@
 
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.e.hardwarewalaseller.MainActivity" />
+        <activity android:name="com.e.hardwarewalaseller.MainActivity"
+            android:screenOrientation="portrait"
+            />
 
         <activity android:name="com.e.hardwarewalaseller.ViewProduct"
-
+            android:screenOrientation="portrait"
             />
         <activity android:name="com.e.hardwarewalaseller.ViewProductByCategory"
             android:parentActivityName="com.e.hardwarewalaseller.Home"
+            android:screenOrientation="portrait"
             />
 
         <activity android:name="com.e.hardwarewalaseller.EnglishToHindi" />
 
 
-        <activity android:name="com.e.hardwarewalaseller.AddStore"/>
+        <activity android:name="com.e.hardwarewalaseller.AddStore"
+            android:screenOrientation="portrait"
+            />
 
-        <activity android:name="com.e.hardwarewalaseller.UpdateStore"/>
+        <activity android:name="com.e.hardwarewalaseller.UpdateStore"
+            android:screenOrientation="portrait"
+            />
 
         <activity android:name="com.e.hardwarewalaseller.PackageHistory"
             android:parentActivityName="com.e.hardwarewalaseller.Home"
+            android:screenOrientation="portrait"
             />
 
-        <activity android:name="com.e.hardwarewalaseller.OrderHistory"/>
+        <activity android:name="com.e.hardwarewalaseller.OrderHistory"
+            android:screenOrientation="portrait"
+            />
 
-        <activity android:name="com.e.hardwarewalaseller.Summary"/>
+        <activity android:name="com.e.hardwarewalaseller.Summary"
+            android:screenOrientation="portrait"
+            />
 
 
         <!--review later below-->
-        <activity android:name="com.e.hardwarewalaseller.Home"/>
-        <activity android:name="com.e.hardwarewalaseller.LogInActivity"/>
+        <activity android:name="com.e.hardwarewalaseller.Home" android:screenOrientation="portrait"/>
+        <activity android:name="com.e.hardwarewalaseller.LogInActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.e.hardwarewalaseller.AddProduct"
+            android:screenOrientation="portrait"
             />
 
-        <activity android:name="com.e.hardwarewalaseller.RatingActivity"/>
-        <activity android:name="com.e.hardwarewalaseller.UpdateProduct"/>
+        <activity android:name="com.e.hardwarewalaseller.RatingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.e.hardwarewalaseller.UpdateProduct" android:screenOrientation="portrait"/>
 
-        <activity android:name="com.e.hardwarewalaseller.breakabl"/>
 
-        <activity android:name="com.e.hardwarewalaseller.LauncherActivity">
+        <activity android:name="com.e.hardwarewalaseller.PrivacyPolicyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.e.hardwarewalaseller.ContactActivity" android:screenOrientation="portrait"/>
+
+
+
+        <activity android:name="com.e.hardwarewalaseller.breakabl" android:screenOrientation="portrait"/>
+
+        <activity android:name="com.e.hardwarewalaseller.LauncherActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -67,6 +86,7 @@
 
 
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat"/>
 
         <meta-data

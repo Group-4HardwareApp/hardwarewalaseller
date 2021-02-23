@@ -68,7 +68,7 @@ public class ViewProductByCategory extends AppCompatActivity {
         if (isConnected()) {
             ProductService.ProductApi productApi = ProductService.getProductApiInstance();
             Call<ArrayList<Product>> call = productApi.getProductByCategoryAndShopKeeper(category.getCategoryId(), shopkeeperId);
-            Toast.makeText(this, ""+category.getCategoryId()+"  "+shopkeeperId, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, ""+category.getCategoryId()+"  "+shopkeeperId, Toast.LENGTH_SHORT).show();
             call.enqueue(new Callback<ArrayList<Product>>() {
                 @Override
                 public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {

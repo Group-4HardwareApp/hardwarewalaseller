@@ -72,7 +72,7 @@ public class PackageHistory extends AppCompatActivity {
                             activityPackageHistoryBinding.tvtext.setText("No orders Placed yet !");
                             activityPackageHistoryBinding.tvtext.setVisibility(View.VISIBLE);
                             activityPackageHistoryBinding.lottiebox.setVisibility(View.VISIBLE);
-                            Toast.makeText(PackageHistory.this, "0 elemet", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(PackageHistory.this, "0 elemet", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -105,7 +105,7 @@ public class PackageHistory extends AppCompatActivity {
                             activityPackageHistoryBinding.tvtext.setText("No New Orders..");
                             activityPackageHistoryBinding.tvtext.setVisibility(View.VISIBLE);
                             activityPackageHistoryBinding.lottiebox.setVisibility(View.VISIBLE);
-                            Toast.makeText(PackageHistory.this, "0 elemet", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(PackageHistory.this, "0 elemet", Toast.LENGTH_SHORT).show();
                         }
 
 

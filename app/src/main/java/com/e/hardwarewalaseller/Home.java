@@ -496,10 +496,15 @@ public class Home extends AppCompatActivity {
 
 
                 else if (id == R.id.contactus) {
-                    Toast.makeText(Home.this, "clcke", Toast.LENGTH_SHORT).show();
-                    Intent in = new Intent(Home.this, EnglishToHindi.class);
-//                    in.putExtra("status", "current");
+                    Intent in = new Intent(Home.this, ContactActivity.class);
                     startActivity(in);
+                }
+
+
+                else if (id == R.id.policy) {
+                    Intent in = new Intent(Home.this, PrivacyPolicyActivity.class);
+                    startActivity(in);
+
                 }
 
 
