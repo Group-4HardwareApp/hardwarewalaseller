@@ -31,7 +31,6 @@ public class LauncherActivity extends AppCompatActivity {
         binding = ActivitySplashBinding.inflate(inflater);
         View v = binding.getRoot();
         setContentView(v);
-//        anim();
 
         if (!isConnectedToInternet(this)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(LauncherActivity.this);

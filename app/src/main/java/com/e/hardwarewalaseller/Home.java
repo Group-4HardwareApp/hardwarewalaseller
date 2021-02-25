@@ -53,12 +53,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Home extends AppCompatActivity {
-    //    NavigationHeaderBinding navigationHeaderBinding;
+
     ActivityHomeBinding activityHomeBinding;
     ActionBarDrawerToggle toggle;
-//    String inputQuery;
+
     FirebaseUser currentUser;
-    //hardcoded
 
     FirebaseAuth mAuth;
     ProductAdapter productAdapter;
@@ -72,9 +71,6 @@ public class Home extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         String TOKENDISP = FirebaseInstanceId.getInstance().getToken();
-        /*Toast.makeText(this, "ID :"+FirebaseAuth.getInstance().getCurrentUser().getUid(),Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "TOKEN :" + TOKENDISP, Toast.LENGTH_SHORT).show();*/
-
         String cuID=FirebaseAuth.getInstance().getCurrentUser().getUid();//currentuserID
 
         sp = getSharedPreferences("user", MODE_PRIVATE);
@@ -325,6 +321,7 @@ public class Home extends AppCompatActivity {
         Log.e("TAG", "id===>" + id);
         if (!id.equals("Not found")) {
             Log.e("TAG", "IN__IF_IDS" + id + currentUserId);
+
             if (!id.equals(currentUserId)) {
                 ShopkeeperService.ShopkeeperApi shopkeeperApi = ShopkeeperService.getShopkeeperApiInstance();
                 Call<Shopkeeper> call = shopkeeperApi.viewShopkeeper(currentUserId);
@@ -351,21 +348,20 @@ public class Home extends AppCompatActivity {
             }
         } else {
             Log.e("TAG", "IN__ELSE_IDS" + id + currentUserId);
-//            Toast.makeText(this, "BLANK", Toast.LENGTH_SHORT).show();
+
             ShopkeeperService.ShopkeeperApi shopkeeperApi = ShopkeeperService.getShopkeeperApiInstance();
             Call<Shopkeeper> call = shopkeeperApi.viewShopkeeper(currentUserId);
             call.enqueue(new Callback<Shopkeeper>() {
                 @Override
                 public void onResponse(Call<Shopkeeper> call, Response<Shopkeeper> response) {
-//                            saveUserProfile(response.body());
-                    Toast.makeText(Home.this, "response !!" + response.code(), Toast.LENGTH_SHORT).show();
+
+//                    Toast.makeText(Home.this, "response !!" + response.code(), Toast.LENGTH_SHORT).show();
                     if (response.code() == 200) {
-                        Toast.makeText(Home.this, "200!", Toast.LENGTH_SHORT).show();
 
                         saveUserProfile(response.body());
 
                     } else if (response.code() == 404) {
-//                        Toast.makeText(Home.this, "404!", Toast.LENGTH_SHORT).show();
+
                         sendUserToProfileActivity();
                     }
                 }

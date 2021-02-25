@@ -2,6 +2,7 @@ package com.e.hardwarewalaseller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ public class LogInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SignInUser();
+
     }
 
     @Override
@@ -57,7 +59,8 @@ public class LogInActivity extends AppCompatActivity {
 //                    Toast.makeText(LogInActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
                     sendUserToHomeScreen();
                 } else {
-                    startActivityForResult(AuthUI.getInstance()
+                    startActivityForResult(
+                            AuthUI.getInstance()
                             .createSignInIntentBuilder()
                             .setLogo(R.drawable.hardwarewala_yellow)
                             .setTheme(R.style.LogInTheme)

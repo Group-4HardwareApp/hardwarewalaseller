@@ -76,9 +76,6 @@ public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapte
                 AlertDialog mDialog = mBuilder.create();
                 mDialog.show();
 
-
-
-
             }
         });
     }
