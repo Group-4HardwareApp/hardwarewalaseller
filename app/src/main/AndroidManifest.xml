@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.e.hardwarewalaseller">
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -13,46 +11,66 @@
         android:largeHeap="true"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
+        android:requestLegacyExternalStorage="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity" />
-
-        <activity android:name=".ViewProduct"
-
-            />
-        <activity android:name=".ViewProductByCategory"
-            android:parentActivityName=".Home"
+        <activity android:name="com.e.hardwarewalaseller.MainActivity"
+            android:screenOrientation="portrait"
             />
 
-        <activity android:name=".AddStore"/>
-
-        <activity android:name=".UpdateStore"/>
-        <activity android:name=".PackageHistory"
-            android:parentActivityName=".Home"
+        <activity android:name="com.e.hardwarewalaseller.ViewProduct"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name="com.e.hardwarewalaseller.ViewProductByCategory"
+            android:parentActivityName="com.e.hardwarewalaseller.Home"
+            android:screenOrientation="portrait"
             />
 
-        <activity android:name=".OrderHistory"/>
-        <activity android:name=".Summary"/>
+        <activity android:name="com.e.hardwarewalaseller.EnglishToHindi" />
+
+
+        <activity android:name="com.e.hardwarewalaseller.AddStore"
+            android:screenOrientation="portrait"
+            />
+
+        <activity android:name="com.e.hardwarewalaseller.UpdateStore"
+            android:screenOrientation="portrait"
+            />
+
+        <activity android:name="com.e.hardwarewalaseller.PackageHistory"
+            android:parentActivityName="com.e.hardwarewalaseller.Home"
+            android:screenOrientation="portrait"
+            />
+
+        <activity android:name="com.e.hardwarewalaseller.OrderHistory"
+            android:screenOrientation="portrait"
+            />
+
+        <activity android:name="com.e.hardwarewalaseller.Summary"
+            android:screenOrientation="portrait"
+            />
 
 
         <!--review later below-->
-        <activity android:name=".Home"/>
-        <activity android:name=".LogInActivity"/>
-        <activity android:name=".AddProduct"
-            android:parentActivityName=".Home"
+        <activity android:name="com.e.hardwarewalaseller.Home" android:screenOrientation="portrait"/>
+        <activity android:name="com.e.hardwarewalaseller.LogInActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.e.hardwarewalaseller.AddProduct"
+            android:screenOrientation="portrait"
             />
 
-        <activity android:name=".RatingActivity"/>
-        <activity android:name=".UpdateProduct"/>
+        <activity android:name="com.e.hardwarewalaseller.RatingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.e.hardwarewalaseller.UpdateProduct" android:screenOrientation="portrait"/>
 
-        <activity android:name=".breakabl"/>
 
-        <activity android:name=".LauncherActivity">
+        <activity android:name="com.e.hardwarewalaseller.PrivacyPolicyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.e.hardwarewalaseller.ContactActivity" android:screenOrientation="portrait"/>
+
+
+        <activity android:name="com.e.hardwarewalaseller.LauncherActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -61,10 +79,8 @@
         </activity>
 
 
-
-
-
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat"/>
 
         <meta-data
@@ -73,7 +89,7 @@
 
 
 
-        <service android:name=".MyFirebaseMessagingService"
+        <service android:name="com.e.hardwarewalaseller.MyFirebaseMessagingService"
             android:exported="false"
             >
             <intent-filter>

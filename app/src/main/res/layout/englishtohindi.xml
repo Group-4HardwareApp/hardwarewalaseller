@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<EditText
+    android:layout_marginTop="20dp"
+    android:id="@+id/etinput"
+    android:layout_gravity="center"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+android:textColor="@color/colorblack"
+    android:text="input"
+    android:textAlignment="center"
+    />
+    <Button
+        android:layout_gravity="center"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn"
+        android:text="click here"
+        android:textColor="@color/white"
+/>
+
+    <TextView
+
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/tvoutput"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="output"
+        android:textColor="@color/colorblack" />
+
+
+</LinearLayout>

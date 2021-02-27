@@ -1,4 +1,4 @@
-package com.e.hardwarewalaseller;
+package com.e.hardwarewalalseller;
 
 import org.junit.Test;
 

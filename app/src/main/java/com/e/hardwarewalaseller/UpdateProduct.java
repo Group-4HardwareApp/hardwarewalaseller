@@ -5,26 +5,19 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.e.hardwarewalaseller.apis.CategoryService;
 import com.e.hardwarewalaseller.beans.Category;
 import com.e.hardwarewalaseller.beans.Product;
 import com.e.hardwarewalaseller.databinding.ActivityAddProductBinding;
-import com.google.common.graph.ImmutableNetwork;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class UpdateProduct extends AppCompatActivity {
 

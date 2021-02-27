@@ -47,6 +47,25 @@ public class Product implements Serializable {
     @Expose
     private long timestamp;
 
+    public Product(){};
+    public Product(String productId, String categoryId, String shopkeeperId, String name, double price, double discount, String brand, long qtyInStock, String imageUrl, String secondImageUrl, String thirdImageurl, String description, long timestamp) {
+        super();
+        this.productId = productId;
+        this.categoryId = categoryId;
+        this.shopkeeperId = shopkeeperId;
+        this.name = name;
+        this.price = price;
+        this.discount = discount;
+        this.brand = brand;
+        this.qtyInStock = qtyInStock;
+        this.imageUrl = imageUrl;
+        this.secondImageUrl = secondImageUrl;
+        this.thirdImageurl = thirdImageurl;
+        this.description = description;
+        this.timestamp = timestamp;
+    }
+
+
     public String getProductId() {
         return productId;
     }
@@ -150,6 +169,8 @@ public class Product implements Serializable {
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
+
+
 
 }
 

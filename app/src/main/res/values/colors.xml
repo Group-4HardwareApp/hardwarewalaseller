@@ -3,25 +3,16 @@
     <color name="colorPrimary">#000000</color>
 
     <color name="colorPrimaryDark">#FACC43</color>
-    <!--
-    died
-    <color name="colorPrimaryDark">#015D87</color>
-    -->
 
     <color name="colorAccent">#000000</color>
-    <color name="colorOrange">#FFA622</color>
+    <color name="colorOrange">#F6BE16</color>
     <color name="colorBlue">#FACC43</color>
 
-    <!--
-        died color
-        <color name="colorBlue">#047BD5</color>
--->
+
     <color name="colormaroon">#A60021</color>
     <color name="colortest">#D85E76</color>
     <color name="colorYellow">#FFFF00</color>
     <color name="error_color">#E40404</color>
-    <!--<color name="colorwhite">#fff</color>-->
-
     <color name="colorwhite">#000</color>
     <color name="colorblack">#000</color>
     <color name="offWhite">#EDEDED</color>

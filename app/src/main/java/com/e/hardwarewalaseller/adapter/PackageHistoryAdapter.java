@@ -2,7 +2,6 @@ package com.e.hardwarewalaseller.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +14,6 @@ import com.e.hardwarewalaseller.OrderHistory;
 import com.e.hardwarewalaseller.beans.ItemList;
 import com.e.hardwarewalaseller.beans.Order;
 import com.e.hardwarewalaseller.databinding.PackageHistoryItemListBinding;
-import com.google.gson.internal.$Gson$Preconditions;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 

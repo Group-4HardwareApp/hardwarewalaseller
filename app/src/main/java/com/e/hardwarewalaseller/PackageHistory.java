@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -44,7 +45,7 @@ public class PackageHistory extends AppCompatActivity {
         String Status = in.getStringExtra("status");
 //        String shopkeeperId = "9GqnMcWuDOdrL99lPbdelvybnNV2";
         String shopkeeperId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Toast.makeText(this, "shopkeeperId" + shopkeeperId, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "shopkeeperId" + shopkeeperId, Toast.LENGTH_SHORT).show();
 
         if (isConnected()) {
             //String history orders st
@@ -65,6 +66,14 @@ public class PackageHistory extends AppCompatActivity {
                         packageHistoryAdapter = new PackageHistoryAdapter(PackageHistory.this, orderList);
                         activityPackageHistoryBinding.rvpackagehistory.setAdapter(packageHistoryAdapter);
                         activityPackageHistoryBinding.rvpackagehistory.setLayoutManager(new LinearLayoutManager(PackageHistory.this));
+                        if(orderList.isEmpty())
+                        {
+                            activityPackageHistoryBinding.scrollview.setVisibility(View.GONE);
+                            activityPackageHistoryBinding.tvtext.setText("No orders Placed yet !");
+                            activityPackageHistoryBinding.tvtext.setVisibility(View.VISIBLE);
+                            activityPackageHistoryBinding.lottiebox.setVisibility(View.VISIBLE);
+//                            Toast.makeText(PackageHistory.this, "0 elemet", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     @Override
@@ -87,14 +96,24 @@ public class PackageHistory extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ArrayList<Order>> call, Response<ArrayList<Order>> response) {
                         ArrayList<Order> orderList = response.body();
-//                        Toast.makeText(PackageHistory.this, "IN onresponse", Toast.LENGTH_SHORT).show();
                         packageHistoryAdapter = new PackageHistoryAdapter(PackageHistory.this, orderList);
                         activityPackageHistoryBinding.rvpackagehistory.setAdapter(packageHistoryAdapter);
                         activityPackageHistoryBinding.rvpackagehistory.setLayoutManager(new LinearLayoutManager(PackageHistory.this));
+                        if(orderList.isEmpty())
+                        {
+                            activityPackageHistoryBinding.scrollview.setVisibility(View.GONE);
+                            activityPackageHistoryBinding.tvtext.setText("No New Orders..");
+                            activityPackageHistoryBinding.tvtext.setVisibility(View.VISIBLE);
+                            activityPackageHistoryBinding.lottiebox.setVisibility(View.VISIBLE);
+//                            Toast.makeText(PackageHistory.this, "0 elemet", Toast.LENGTH_SHORT).show();
+                        }
+
+
                     }
 
                     @Override
                     public void onFailure(Call<ArrayList<Order>> call, Throwable t) {
+                        Log.e("ERROR",""+t);
                         Toast.makeText(PackageHistory.this, "Bad response from server", Toast.LENGTH_SHORT).show();
                     }
                 });

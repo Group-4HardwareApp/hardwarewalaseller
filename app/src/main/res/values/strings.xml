@@ -1,24 +1,13 @@
 <resources>
     <string name="app_name">HardwareWale</string>
-    <string name="username">HardwareWalaSeller</string>
-    <string name="email_validation">HardwareWalaSeller</string>
-    <string name="mobile_validation">HardwareWalaSeller</string>
-    <string name="store_name">HardwareWalaSeller</string>
-    <string name="address_validation">HardwareWalaSeller</string>
-    <string name="empty_directory">Empty Directory</string>
-    <string name="storage_removed">Storage was removed or unmounted.</string>
-    <string name="choose_file">Select a file</string>
-    <string name="error_selecting_file">Error selecting File</string>
     <string name="internal_storage">Internal storage</string>
-    <string name="err_name">Enter Name</string>
 
     <string name="open">open</string>
     <string name="close">close</string>
 
-    <string name="rupee">₹</string>
+    <string name="viewmore"><u>View More</u></string>
+    <string name="viewreviews"><u>View Reviews</u></string>
+    <string name="channel_name">sendnotification</string>
 
-    <string name="imageupdate">Image updated successfully !</string>
-    <string name="productinfo">Product added successfully !</string>
-    <string name="productupdateinfo">Product information updated successfully !</string>
 
 </resources>

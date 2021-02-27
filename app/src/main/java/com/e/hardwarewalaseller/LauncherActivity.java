@@ -13,7 +13,6 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -32,7 +31,6 @@ public class LauncherActivity extends AppCompatActivity {
         binding = ActivitySplashBinding.inflate(inflater);
         View v = binding.getRoot();
         setContentView(v);
-//        anim();
 
         if (!isConnectedToInternet(this)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(LauncherActivity.this);

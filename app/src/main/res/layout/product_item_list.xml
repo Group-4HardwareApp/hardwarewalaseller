@@ -4,14 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/productcv"
     android:layout_gravity="center"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    app:cardElevation="10dp"
+    app:cardElevation="7dp"
     android:orientation="vertical"
     android:outlineAmbientShadowColor="@color/colorAccent"
     android:outlineSpotShadowColor="@color/colorblack"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="7dp">
 
     <RelativeLayout
 
@@ -29,7 +29,8 @@
             android:src="@drawable/hardwarewala_yellow" />
 
         <TextView
-
+            android:gravity="center"
+            android:layout_centerInParent="true"
             android:layout_marginTop="5dp"
             android:id="@+id/productname"
             android:layout_width="wrap_content"

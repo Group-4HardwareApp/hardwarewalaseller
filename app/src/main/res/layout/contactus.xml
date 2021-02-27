@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_border"
+        app:titleTextColor="@color/colorwhite"
+
+        />
+
+    <RelativeLayout
+        android:id="@+id/llCall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact with Phone"
+            android:textColor="@color/colorblack"
+
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvContact"
+            android:layout_margin="2dp"
+            android:layout_marginStart="5dp"
+            android:drawableLeft="@drawable/phone"
+            android:drawablePadding="10dp"
+            android:text="+91963XXX6501"
+            android:textColor="@color/colorblack"
+
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/ivContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/phonegreen"
+            android:padding="8dp"
+             />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/llEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llCall"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact with Email"
+            android:textColor="@color/colorblack"
+
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvEmail"
+            android:layout_marginStart="5dp"
+            android:drawableLeft="@drawable/mail"
+            android:padding="3dp"
+            android:drawablePadding="10dp"
+            android:text="mailto@gmail.com"
+            android:textColor="@color/colorblack"
+
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/ivEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/gmail"
+            android:padding="8dp"
+             />
+    </RelativeLayout>
+
+</RelativeLayout>

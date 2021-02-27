@@ -29,9 +29,10 @@ import retrofit2.Response;
 public class ViewProductByCategory extends AppCompatActivity {
     SharedPreferences sp;
     ProductAdapter productAdapter;
-
+    ArrayList<Product> productList =null;
     ActivityViewProductByCategoryBinding activityViewProductByCategoryBinding;
-
+    String shopkeeperId="";
+    Category category=null;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,19 +45,34 @@ public class ViewProductByCategory extends AppCompatActivity {
 
         Intent in = getIntent();
         sp = getSharedPreferences("user", MODE_PRIVATE);
-        String shopkeeperId = sp.getString("userId", "");
+        shopkeeperId = sp.getString("userId", "");
 
-        Category category = (Category) in.getSerializableExtra("category");
-        String categoryId = category.getCategoryId();
+        category = (Category) in.getSerializableExtra("category");
+//        String categoryId = category.getCategoryId();
+
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(productAdapter!=null)
+            productAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         if (isConnected()) {
-//            Toast.makeText(this, ""+categoryId+shopkeeperId, Toast.LENGTH_SHORT).show();
             ProductService.ProductApi productApi = ProductService.getProductApiInstance();
-            Call<ArrayList<Product>> call = productApi.getProductByCategoryAndShopKeeper(categoryId, shopkeeperId);
+            Call<ArrayList<Product>> call = productApi.getProductByCategoryAndShopKeeper(category.getCategoryId(), shopkeeperId);
+//            Toast.makeText(this, ""+category.getCategoryId()+"  "+shopkeeperId, Toast.LENGTH_SHORT).show();
             call.enqueue(new Callback<ArrayList<Product>>() {
                 @Override
                 public void onResponse(Call<ArrayList<Product>> call, Response<ArrayList<Product>> response) {
-                    ArrayList<Product> productList = response.body();
+                     productList = response.body();
                     productAdapter = new ProductAdapter(ViewProductByCategory.this, productList);
 
                     if (productList == null) {
@@ -64,10 +80,11 @@ public class ViewProductByCategory extends AppCompatActivity {
                         Log.e("SHowing Null", "SSSS");
                     }
 //                    Toast.makeText(ViewProductByCategory.this, "all products of this category", Toast.LENGTH_SHORT).show();
+                    productAdapter.notifyDataSetChanged();
+
 
                     activityViewProductByCategoryBinding.rvcategoryshopkeeper.setAdapter(productAdapter);
                     activityViewProductByCategoryBinding.rvcategoryshopkeeper.setLayoutManager(new GridLayoutManager(ViewProductByCategory.this, 2));
-                    productAdapter.notifyDataSetChanged();
 
                     productAdapter.setOnItemClickListener(new ProductAdapter.onRecyclerViewClick() {
                         @Override
@@ -79,19 +96,20 @@ public class ViewProductByCategory extends AppCompatActivity {
 
                         }
                     });
-//                    Toast.makeText(ViewProductByCategory.this, "Success", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onFailure(Call<ArrayList<Product>> call, Throwable t) {
                     Toast.makeText(ViewProductByCategory.this, "Bad response from server", Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(ViewProductByCategory.this, ""+t, Toast.LENGTH_SHORT).show();
                     Log.e("TAG",""+t);
                 }
             });
         } else {
             Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
         }
+
+
+
     }
 
     public boolean isConnected() {

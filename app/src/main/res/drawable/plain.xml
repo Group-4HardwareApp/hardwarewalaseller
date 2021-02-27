@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke android:width="2dp" android:color="@color/colorBlue"/>
+    <gradient
+        android:angle="45"
+        android:startColor="@color/colorBlue"
+        android:centerColor="@color/colorBlue"
+        android:endColor="@color/colorBlue"
+
+        />
+
+</shape>
+<!--#EFBC21-->

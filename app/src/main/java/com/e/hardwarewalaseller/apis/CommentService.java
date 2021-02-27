@@ -5,7 +5,6 @@ package com.e.hardwarewalaseller.apis;
 import com.e.hardwarewalaseller.beans.Comment;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;

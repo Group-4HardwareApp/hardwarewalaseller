@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.e.hardwarewalaseller.adapter.PackageHistoryAdapter;
 import com.e.hardwarewalaseller.apis.OrderService;
 import com.e.hardwarewalaseller.beans.ItemList;
 import com.e.hardwarewalaseller.beans.Order;
@@ -91,8 +88,10 @@ public class Summary extends AppCompatActivity {
                     }
 //                    Toast.makeText(Summary.this, ""+totalAmount, Toast.LENGTH_SHORT).show();
 //                    Toast.makeText(Summary.this, ""+TotalproductQuantity, Toast.LENGTH_SHORT).show();
+
                     activitystatsBinding.tvamount.setText("" + totalAmount);
                     activitystatsBinding.tvproductcount.setText("" + TotalproductQuantity);
+
                 }
 
                 @Override

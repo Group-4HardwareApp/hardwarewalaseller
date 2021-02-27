@@ -51,31 +51,36 @@ public class ProductService {
         public Call<Product> deleteProduct(@Path("id") String id);
 
         @Multipart
-        @POST("product/save")
-        public Call<Product> saveProduct(@Part MultipartBody.Part file,
-                                         @Part  MultipartBody.Part file2,
-                                         @Part  MultipartBody.Part file3,
-                                         @Part("categoryId") RequestBody categoryId,
-                                         @Part("shopkeeperId") RequestBody shopkeeperId,
-                                         @Part("name") RequestBody name,
-                                         @Part("price") RequestBody price,
-                                         @Part("discount") RequestBody discount,
-                                         @Part("brand") RequestBody brand,
-                                         @Part("qtyInStock") RequestBody qtyInStock,
-                                         @Part("description") RequestBody description);
-
-
+        @POST("product/uploadmultimages")
+        public Call<Product> multProductImages(@Part List<MultipartBody.Part> file,
+                                               @Part("categoryId") RequestBody categoryId,
+                                               @Part("shopkeeperId") RequestBody shopkeeperId,
+                                               @Part("name") RequestBody name,
+                                               @Part("price") RequestBody price,
+                                               @Part("discount") RequestBody discount,
+                                               @Part("brand") RequestBody brand,
+                                               @Part("qtyInStock") RequestBody qtyInStock,
+                                               @Part("description") RequestBody description);
 
 
         @POST("product/updateproduct")
          public  Call<Product> updateProduct(@Body Product product);
 
+
+        /*@Multipart
+        @POST("product/updateproductimg")
+        public Call<Product> updateProductImage(@Part List<MultipartBody.Part> file, @Part("productId") RequestBody productId);
+
+*/
+
         @Multipart
         @POST("product/updateproductimg")
-        public Call<Product> updateProductImage(@Part MultipartBody.Part file,@Part("productId") RequestBody productId);
+        public Call<Product> updateProductImage(@Part List<MultipartBody.Part> file, @Part("productId") RequestBody productId,@Part("arr")  int[] counter);
+
+
+
+
 
     }
-
-
 
 }

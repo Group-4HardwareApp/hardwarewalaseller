@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.e.hardwarewalaseller.beans.Category;
-import com.e.hardwarewalaseller.beans.Product;
 import com.e.hardwarewalaseller.databinding.CategoryItemListBinding;
 import com.squareup.picasso.Picasso;
 

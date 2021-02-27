@@ -3,10 +3,8 @@ package com.e.hardwarewalaseller;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -35,7 +33,6 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.File;
-import java.net.URI;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -45,8 +42,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.basgeekball.awesomevalidation.ValidationStyle.BASIC;
-import static com.basgeekball.awesomevalidation.ValidationStyle.TEXT_INPUT_LAYOUT;
-import static com.basgeekball.awesomevalidation.ValidationStyle.UNDERLABEL;
 
 
 public class AddStore extends AppCompatActivity {
@@ -202,8 +197,8 @@ public class AddStore extends AppCompatActivity {
                         Log.e("prec", "Updated" + s.getName() + s.getShopkeeperId() + s.getAddress());
 
                         progressDialog = new ProgressDialog(AddStore.this);
-                        progressDialog.setTitle("Adding Store");
-                        progressDialog.setMessage("Please wait while adding store..");
+                        progressDialog.setTitle("Updating Store");
+                        progressDialog.setMessage("Please wait while updating store..");
                         progressDialog.show();
 
                         ShopkeeperService.ShopkeeperApi shopkeeperApi = ShopkeeperService.getShopkeeperApiInstance();

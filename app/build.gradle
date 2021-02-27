@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 android {
-
     android.ndkVersion "21.0.6113669"
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
@@ -94,6 +93,10 @@ dependencies {
     //slider
     implementation 'com.github.smarteist:autoimageslider:1.4.0'
 
+    implementation 'com.google.mlkit:translate:16.1.1'
+
+    //
+    implementation 'com.github.iammannan:TranslateAPI:1.1'
 
 
 }

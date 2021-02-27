@@ -113,7 +113,8 @@
                 android:layout_marginTop="60dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:overScrollMode="never">
 
                 <TextView
                     android:paddingLeft="15dp"
@@ -129,6 +130,7 @@
                     android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:overScrollMode="never"
                     android:id="@+id/rvcategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -149,6 +151,7 @@
                     android:visibility="gone" />
 
                 <androidx.recyclerview.widget.RecyclerView
+                    android:overScrollMode="never"
                     android:visibility="gone"
                     android:id="@+id/rvproduct"
                     android:layout_width="match_parent"
@@ -166,6 +169,7 @@
             android:layout_gravity="start"
             android:clipToPadding="true"
             app:headerLayout="@layout/navigation_header"
-            app:menu="@menu/navigation_menu_itemlist" />
+            app:menu="@menu/navigation_menu_itemlist"
+            android:overScrollMode="never"/>
     </androidx.drawerlayout.widget.DrawerLayout>
 </RelativeLayout>

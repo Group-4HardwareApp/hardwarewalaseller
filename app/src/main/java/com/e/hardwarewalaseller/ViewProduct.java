@@ -31,6 +31,7 @@ import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 import com.squareup.picasso.Picasso;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,9 +73,6 @@ public class ViewProduct extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String id = p.getProductId();
-//                Toast.makeText(ViewProduct.this, "PID" + id, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(ViewProduct.this, "SID" + p.getShopkeeperId(), Toast.LENGTH_SHORT).show();
-//                Toast.makeText(Home.this, "Sign Out", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder ab = new AlertDialog.Builder(ViewProduct.this);
                 ab.setMessage("Do you want to delete this product ?");
                 ab.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -91,6 +89,7 @@ public class ViewProduct extends AppCompatActivity {
                             public void onResponse(Call<Product> call, Response<Product> response) {
                                 Toast.makeText(ViewProduct.this, "Product Deleted !", Toast.LENGTH_SHORT).show();
                                 finish();
+
                             }
 
                             @Override
@@ -100,7 +99,6 @@ public class ViewProduct extends AppCompatActivity {
                         });
                         pd.dismiss();
                         //here method to lead to intent
-                        finish();
                     }
                 });
                 ab.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -176,17 +174,22 @@ public class ViewProduct extends AppCompatActivity {
     }
 
     public void renewItems(View view) {
+
         List<SliderItem> sliderItemList = new ArrayList<>();
-        for (int i = 1; i < 4; i++) {
-            SliderItem sliderItem = new SliderItem();
-            if (i == 1) {
-                sliderItem.setImageUrl(p.getImageUrl());
-            } else if (i == 2) {
-                sliderItem.setImageUrl(p.getSecondImageUrl());
-            } else if (i == 3) {
-                sliderItem.setImageUrl(p.getThirdImageurl());
+        if (p.getImageUrl()!=null){
+            SliderItem sliderItem1=new SliderItem();
+            sliderItem1.setImageUrl(p.getImageUrl());
+            sliderItemList.add(sliderItem1);
+            if (p.getSecondImageUrl()!=null){
+                SliderItem sliderItem2=new SliderItem();
+                sliderItem2.setImageUrl(p.getSecondImageUrl());
+                sliderItemList.add(sliderItem2);
+                if (p.getThirdImageurl()!=null){
+                    SliderItem sliderItem3=new SliderItem();
+                    sliderItem3.setImageUrl(p.getThirdImageurl());
+                    sliderItemList.add(sliderItem3);
+                }
             }
-            sliderItemList.add(sliderItem);
         }
         sliderAdapterExample.renewItems(sliderItemList);
     }
@@ -213,7 +216,6 @@ public class ViewProduct extends AppCompatActivity {
 
 
     private void viewRating() {
-
         if (isConnected()) {
             String id = p.getProductId();
             CommentService.CommentApi commentApi = CommentService.getCommentApiInstance();

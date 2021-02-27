@@ -2,8 +2,10 @@ package com.e.hardwarewalaseller.adapter;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,7 +42,12 @@ public class ShowCommentAdapter extends RecyclerView.Adapter<ShowCommentAdapter.
         Comment comment = commentList.get(position);
         holder.binding.tvComment.setText("" + comment.getComment());
         holder.binding.tvUserName.setText("" + comment.getUserName());
-        Picasso.get().load(comment.getUserImg()).placeholder(R.drawable.hardwarewala_yellow).into(holder.binding.ivUserImg);
+
+        Picasso.get().load(comment.getUserImg()).placeholder(R.drawable.user2).into(holder.binding.userImg);
+
+        Toast.makeText(context, ""+comment.getUserImg(), Toast.LENGTH_SHORT).show();
+
+        Log.e("VAX",""+comment.getUserImg());
         rate = Float.valueOf(comment.getRating()).floatValue();
         holder.binding.ratingBar.setRating(rate);
         //holder.binding.tvRate.setText("" + rate + " Out of 5 ");

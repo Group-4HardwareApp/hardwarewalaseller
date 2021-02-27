@@ -6,6 +6,7 @@ package com.e.hardwarewalaseller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,10 +32,18 @@ public class RatingActivity extends AppCompatActivity {
         setSupportActionBar(binding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         Intent in = getIntent();
         commentList = (ArrayList<Comment>) in.getSerializableExtra("commentList");
 
         for(Comment comment : commentList) {
+
             adapter = new ShowCommentAdapter(this,commentList);
             binding.rvComment.setLayoutManager(new LinearLayoutManager(RatingActivity.this));
             binding.rvComment.setAdapter(adapter);
