@@ -56,7 +56,9 @@
 
 
         <!--review later below-->
-        <activity android:name="com.e.hardwarewalaseller.Home" android:screenOrientation="portrait"/>
+        <activity android:name="com.e.hardwarewalaseller.Home" android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            />
         <activity android:name="com.e.hardwarewalaseller.LogInActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.e.hardwarewalaseller.AddProduct"
             android:screenOrientation="portrait"

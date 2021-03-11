@@ -74,7 +74,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     public interface onRecyclerViewClick
     {
-        public void onItemClick(Category c, int position);
+         void onItemClick(Category c, int position);
 
     }
     public void setOnItemClickListener(CategoryAdapter.onRecyclerViewClick listener)

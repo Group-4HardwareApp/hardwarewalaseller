@@ -55,7 +55,6 @@ public class AddStore extends AppCompatActivity {
     boolean updateStoreInfo = false;
     MultipartBody.Part body;
     AlertDialog.Builder ab;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -382,7 +381,6 @@ public class AddStore extends AppCompatActivity {
                 .start(AddStore.this);
 
     }
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
