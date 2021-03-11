@@ -3,7 +3,9 @@ package com.e.hardwarewalaseller;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 
@@ -43,14 +45,31 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
             NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             manager.createNotificationChannel(mChannel);
+            Intent in =new Intent(this,Home.class);
+            PendingIntent pendingIntent=PendingIntent.getActivity(this,1,in,PendingIntent.FLAG_UPDATE_CURRENT);
 
-            Notification.Builder builder = new Notification.Builder(MyFirebaseMessagingService.this,CHANNEL_ID);
+           /* Notification.Builder builder = new Notification.Builder(MyFirebaseMessagingService.this,CHANNEL_ID);
                     builder.setContentTitle(title)
                     .setContentText(message)
                             .setPriority(Notification.PRIORITY_HIGH)
                     .setSmallIcon(R.drawable.bell)
                     .setChannelId(CHANNEL_ID)
+                            .setAutoCancel(true)
+                            .setContentIntent(pendingIntent)
+                    .build();*/
+
+            NotificationCompat.Builder builder = new NotificationCompat .Builder(MyFirebaseMessagingService.this,CHANNEL_ID);
+                    builder.setContentTitle(title)
+                    .setContentText(message)
+                            .setPriority(Notification.PRIORITY_HIGH)
+                    .setSmallIcon(R.drawable.bell)
+                    .setChannelId(CHANNEL_ID)
+                            .setAutoCancel(true)
+                            .setContentIntent(pendingIntent)
                     .build();
+
+
+
 
             NotificationManagerCompat notificationManagerCompat= NotificationManagerCompat.from(this);
 //            manager.notify((int) System.currentTimeMillis(), notification);
@@ -69,12 +88,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Notification notification = new NotificationCompat.Builder(getApplicationContext())
                     .setSmallIcon(R.drawable.bell).setContentTitle(title).setContentText(message).build();
 
-
             NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
            manager.notify((int) System.currentTimeMillis(), notification);
         }
-
-
 
     }
 

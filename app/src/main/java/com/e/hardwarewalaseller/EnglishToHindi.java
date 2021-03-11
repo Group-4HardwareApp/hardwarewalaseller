@@ -1,4 +1,4 @@
-package com.e.hardwarewalalseller;
+package com.e.hardwarewalaseller;
 
 import android.os.Bundle;
 import android.util.Log;
